@@ -1,42 +1,43 @@
 import { useParams } from "react-router-dom";
 import { CCard, CCardBody, CCardTitle, CAlert } from "@coreui/react";
 
+// 🔁 Aquí defines los dashboards de deserción por facultad
 const dashboardsPorFacultad: Record<string, { nombre: string; url: string }> = {
   "administracion-de-empresas": {
     nombre: "ADMINISTRACIÓN DE EMPRESAS",
-    url: "https://lookerstudio.google.com/embed/reporting/d44cbefb-bfe7-44c2-bf82-e14932dc206f/page/p_h3lb8xc8hd",
+    url: "https://lookerstudio.google.com/reporting/847ccd46-acbb-47f7-90f1-672fb1c39fac", 
   },
   "ciencias": {
     nombre: "CIENCIAS",
-    url: "https://lookerstudio.google.com/embed/reporting/bb894f0c-e073-4ec4-b58f-3472ae673c1e/page/p_h3lb8xc8hd",
+    url: "https://lookerstudio.google.com/reporting/8545aa92-8745-48c5-8cf1-6536a24ee767", 
   },
   "ciencias-pecuarias": {
     nombre: "CIENCIAS PECUARIAS",
-    url: "https://lookerstudio.google.com/embed/reporting/c212c75b-0170-4a8f-ad5a-c829dce01838/page/p_h3lb8xc8hd",
+    url: "https://lookerstudio.google.com/reporting/0694259d-5103-449c-bd3e-5e40550399e7", 
   },
   "informatica-y-electronica": {
     nombre: "INFORMÁTICA Y ELECTRÓNICA",
-    url: "https://lookerstudio.google.com/embed/reporting/2ebc02b2-ac07-4d8a-ab13-0923a5942528/page/p_h3lb8xc8hd",
+    url: "https://lookerstudio.google.com/reporting/3045c114-5729-486e-b021-809594860b77", 
   },
   "mecanica": {
     nombre: "MECÁNICA",
-    url: "https://lookerstudio.google.com/embed/reporting/ef256761-d15e-460c-9b7f-62c77af797ff/page/p_h3lb8xc8hd",
+    url: "https://lookerstudio.google.com/reporting/11dddbd2-caa5-404b-9aab-93b3509a01b1", 
   },
   "recursos-naturales": {
     nombre: "RECURSOS NATURALES",
-    url: "https://lookerstudio.google.com/embed/reporting/e2e0b830-e141-4641-bf0d-8610a048b0db/page/p_h3lb8xc8hd",
+    url: "https://lookerstudio.google.com/reporting/edb8c03b-37a8-4ee9-8841-161b1aaa51d7", 
   },
   "salud-publica": {
     nombre: "SALUD PÚBLICA",
-    url: "https://lookerstudio.google.com/embed/reporting/7aaaf1c5-305f-41af-9fbb-0ed1a42376bf/page/p_h3lb8xc8hd",
+    url: "https://lookerstudio.google.com/reporting/b31c8b31-ba36-47e6-a976-543a8a920eb2", 
   },
 };
 
-// ✅ Elimina acentos/tildes y pone en minúsculas
+// ✅ Elimina tildes y pone en minúsculas
 const normalizarSlug = (slug: string) =>
   slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-const DashboardFacultadPage = () => {
+const DashboardDesercionPage = () => {
   const { slug } = useParams();
   const dashboard = dashboardsPorFacultad[normalizarSlug(slug || "")];
 
@@ -45,7 +46,7 @@ const DashboardFacultadPage = () => {
       <CCard className="mb-4">
         <CCardBody>
           <CCardTitle className="h5">
-            Dashboard: {dashboard ? dashboard.nombre : "Facultad no encontrada"}
+            Dashboard de Deserción: {dashboard ? dashboard.nombre : "Facultad no encontrada"}
           </CCardTitle>
 
           {dashboard ? (
@@ -62,7 +63,7 @@ const DashboardFacultadPage = () => {
             </div>
           ) : (
             <CAlert color="warning" className="mt-4">
-              No se ha configurado un dashboard para esta facultad.
+              No se ha configurado un dashboard de deserción para esta facultad.
             </CAlert>
           )}
         </CCardBody>
@@ -71,4 +72,4 @@ const DashboardFacultadPage = () => {
   );
 };
 
-export default DashboardFacultadPage;
+export default DashboardDesercionPage;

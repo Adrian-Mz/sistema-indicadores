@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import CIcon from "@coreui/icons-react";
 import { cilUser, cilEducation, cilPuzzle, cilGraph } from "@coreui/icons";
 import { routes } from "../routes/AppRoutes";
+import logoIcon from "../assets/logo-icon-espoch.png";
 
 const groupedRoutes = routes.reduce((acc, route) => {
   if ( !route.hidden && route.section && route.title && route.path !== "/dashboard") {
@@ -41,7 +42,15 @@ const AppSidebar = () => {
   return (
     <CSidebar className="border-end h-screen">
       <CSidebarHeader className="border-bottom">
-        <CSidebarBrand>ESPOCH</CSidebarBrand>
+        <CSidebarBrand
+          className="d-flex justify-content-center align-items-center w-100"
+        >
+          <img
+            src={logoIcon}
+            alt="Logo ESPOCH"
+            style={{ height: "45px", width: "auto" }}
+          />
+        </CSidebarBrand>
       </CSidebarHeader>
       <CSidebarNav>
         <CNavTitle>INICIO</CNavTitle>

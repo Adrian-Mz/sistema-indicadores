@@ -13,6 +13,7 @@ import AdminDashboardPage from "../features/users/admin/page/AdminDashboardPage"
 
 //Dashboards de facultades
 import DashboardFacultadPage from "../features/dashboard/page/DashboardTitulacionPage";
+import DashboardDesercionPage from "../features/dashboard/page/DashboardDesercionPage";
 
 
 export const routes = [
@@ -101,6 +102,14 @@ export const routes = [
     breadcrumb: "Detalle por facultad",
     section: "Estudiantes",
     hidden: true,
-  }
+  },
+  {
+    path: "estudiantes/desercion/facultad/:slug",
+    element: DashboardDesercionPage,
+    title: "Dashboard Deserción",
+    breadcrumb: "Detalle por facultad",
+    section: "Estudiantes",
+    hidden: true,
+  },
 
 ];

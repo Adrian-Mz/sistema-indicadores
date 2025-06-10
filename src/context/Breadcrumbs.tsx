@@ -7,7 +7,7 @@ const Breadcrumbs = () => {
   return (
     <CBreadcrumb className="mb-4">
         {crumbs.map((crumb, idx) => {
-            if (!crumb) return null; // 👈 protege del error
+            if (!crumb) return null; // 
 
             return (
             <CBreadcrumbItem

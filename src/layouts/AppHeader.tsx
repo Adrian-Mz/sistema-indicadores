@@ -12,8 +12,6 @@ import {
   CNavbarBrand,
   CNavbarNav,
   CNavbarToggler,
-  CNavItem,
-  CNavLink,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilUser } from '@coreui/icons'
@@ -33,23 +31,18 @@ export const AppHeader = () => {
   };
 
   return (
-    <CNavbar expand="lg" className="bg-gray-100 border-b border-gray-300 shadow-sm">
-      <CContainer fluid>
-        <CNavbarBrand href="/dashboard">Sistema Indicadores</CNavbarBrand>
+    <CNavbar expand="lg" className="bg-red-700 border-b border-gray-300 shadow-sm ">
+      <CContainer fluid className="p-2 ">
+        <CNavbarBrand href="/dashboard" className='text-white'>Sistema Indicadores</CNavbarBrand>
         <CNavbarToggler onClick={() => setVisible(!visible)} />
         <CCollapse className="navbar-collapse" visible={visible}>
           <CNavbarNav className="me-auto">
-            <CNavItem>
-              <CNavLink href="/dashboard" className="nav-link">
-                Inicio
-              </CNavLink>
-            </CNavItem>
           </CNavbarNav>
           {session?.user ? (
             <CDropdown alignment="end">
-              <CDropdownToggle color="secondary">
+              <CDropdownToggle color="primary">
                 <CIcon icon={cilUser} className="me-2" />
-                {session.user.email}
+                {session.user.user_metadata.name || session.user.email}
               </CDropdownToggle>
               <CDropdownMenu>
                 <CDropdownItem onClick={() => navigate("/dashboard/admin")} >
