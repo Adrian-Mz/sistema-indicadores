@@ -40,7 +40,16 @@ const iconMap: Record<string, typeof cilUser> = {
 
 const AppSidebar = () => {
   return (
-    <CSidebar className="border-end h-screen">
+    <CSidebar
+      className="border-end"
+      style={{
+        height: "100vh",
+        position: "sticky",
+        top: 0,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand
           className="d-flex justify-content-center align-items-center w-100"
@@ -52,7 +61,7 @@ const AppSidebar = () => {
           />
         </CSidebarBrand>
       </CSidebarHeader>
-      <CSidebarNav>
+      <CSidebarNav >
         <CNavTitle>INICIO</CNavTitle>
 
         {Object.entries(groupedRoutes.Inicio).map(([section, items]) => (

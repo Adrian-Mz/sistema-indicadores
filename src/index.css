@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import '@coreui/coreui/dist/css/coreui.min.css';
-body {
+html, body {
     font-family: 'Sansation', sans-serif;
+    height: 100%;
+    margin: 0;
 }
