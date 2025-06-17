@@ -70,7 +70,7 @@ const TitulacionPage = () => {
         <CCol md={4}>
           <CCard className="h-100 text-center">
             <CCardBody className="d-flex flex-column justify-content-center">
-              <h4 className="fw-bold">Meta Institucional</h4>
+              <h5 className="fw-bold">Meta Institucional</h5>
               <h5 className="text-success">Entre 33% y 50% en los próximos años</h5>
             </CCardBody>
           </CCard>
@@ -79,7 +79,7 @@ const TitulacionPage = () => {
         <CCol md={4}>
           <CCard className="h-100 text-center">
             <CCardBody>
-              <h4 className="fw-bold mb-3">Estándar de Titulación</h4>
+              <h5 className="fw-bold mb-3">Estándar de Titulación</h5>
 
               <CRow className="g-2">
                 <CCol xs={12}>
@@ -110,7 +110,7 @@ const TitulacionPage = () => {
         <CCol md={4}>
           <CCard className="h-100 text-center">
             <CCardBody className="d-flex flex-column justify-content-center">
-              <h4 className="fw-bold">Periodicidad del indicador</h4>
+              <h5 className="fw-bold">Periodicidad del indicador</h5>
               <h5 className="text-warning">Semestral</h5>
             </CCardBody>
           </CCard>

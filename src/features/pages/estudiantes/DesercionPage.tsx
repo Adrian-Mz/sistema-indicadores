@@ -5,11 +5,14 @@ import {
   CRow,
   CCol,
   CButton,
-  CAlert
+  CAlert,
+  CCollapse,
+  CPopover
 } from '@coreui/react';
 import { useState } from 'react';
 
 const DesercionPage = () => {
+  const [visible, setVisible] = useState(false);
   const [faq1, setFaq1] = useState(false);
   const [faq2, setFaq2] = useState(false);
 
@@ -36,7 +39,51 @@ const DesercionPage = () => {
             >
               Ver Manual de Indicadores
             </CButton>
+
+            <CButton color="secondary" variant="outline" onClick={() => setVisible(!visible)}>
+              Más información
+            </CButton>
+
+            <CPopover
+              content={
+                <div>
+                  <strong>Fórmula: Tasa de Deserción</strong><br />
+                  ((N° estudiantes cohorte - N° estudiantes matriculados en 2° año) / N° estudiantes cohorte) × 100
+
+                  <hr className="mb-4" />
+
+                  <strong>Fórmula: Tasa de Retención</strong><br />
+                  (N° estudiantes matriculados en 2° año / N° estudiantes cohorte) × 100
+                </div>
+              }
+              placement="right"
+              trigger={['hover', 'focus']}
+            >
+              <CButton color="info" variant="outline">Ver fórmulas</CButton>
+            </CPopover>
+            
           </div>
+          <CCollapse visible={visible} className="mt-3">
+              <CRow>
+                <CCol>
+                  <CCardText style={{ fontSize: '0.9rem' }}>
+                    <strong>Deserción: </strong> 
+                      La tasa de deserción institucional
+                      corresponde al porcentaje de estudiantes
+                      matriculados en el primer nivel de las carreras
+                      de grado y que no continúan sus estudios en
+                      un tiempo determinado posterior a su ingreso.
+                    <hr className="mb-4" />
+                    <strong>Retención: </strong>
+                      La tasa de retención institucional
+                      corresponde al porcentaje de estudiantes
+                      matriculados en el primer nivel de las carreras
+                      de grado y que continúan sus estudios en un
+                      tiempo determinado posterior a su ingreso.
+                  </CCardText>
+                </CCol>
+              </CRow>
+            </CCollapse>
         </CCardBody>
       </CCard>
 

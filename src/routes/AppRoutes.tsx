@@ -1,7 +1,7 @@
 // src/routes/AppRoutes.tsx
 import DashboardPage from "../features/dashboard/page/DashboardPage";
 import AfinidadPage from "../features/pages/personal/AfinidadPage";
-import TitularidadPage from "../features/pages/personal/TitularidadPage";
+import DocenciaPage from "../features/pages/personal/DocenciaPage";
 import TitulacionPage from "../features/pages/estudiantes/TitulacionPage";
 import DesercionPage from "../features/pages/estudiantes/DesercionPage";
 import HerramientasPage from "../features/pages/soporte/HerramientasPage";
@@ -28,9 +28,9 @@ export const routes = [
     section: "Personal Académico",
   },
   {
-    path: "personal/titularidad",
-    element: TitularidadPage,
-    title: "Titularidad",
+    path: "personal/Docencia",
+    element: DocenciaPage,
+    title: "Docencia",
     breadcrumb: "Personal académico titular permanente",
     section: "Personal Académico",
   },
