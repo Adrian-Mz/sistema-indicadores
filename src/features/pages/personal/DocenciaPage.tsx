@@ -7,7 +7,13 @@ import {
   CButton,
   CPopover,
   CAlert,
-  CCollapse
+  CCollapse,
+  CTable,
+  CTableHead,
+  CTableBody,
+  CTableRow,
+  CTableHeaderCell,
+  CTableDataCell
 } from '@coreui/react';
 import { useState } from 'react';
 
@@ -70,7 +76,7 @@ const DocenciaPage = () => {
               <CCol>
                 <CCardText style={{ fontSize: '0.9rem' }}>
                   <strong>Formación Doctoral: </strong>
-                    Expresala relación del número de profesores
+                    Expresa la relación del número de profesores
                     con formación doctoral, con el número
                     del total del personal académico
                     vinculado en el período de evaluación.
@@ -97,114 +103,60 @@ const DocenciaPage = () => {
         </CCardBody>
       </CCard>
 
-      {/* Indicador: Formación Doctoral */}
+      {/* Indicadores metas, estándares y periodicidad */}
       <h5 className="mt-4 mb-2 text-muted">Indicador: Formación Doctoral</h5>
       <CCard className="mb-4">
         <CCardBody>
-          <CRow className="mb-4">
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody>
-                  <h5 className="fw-bold">Meta</h5>
-                  <h6 className="text-success">≥ 20%</h6>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody>
-                  <h5 className="fw-bold">Estándar</h5>
-                  <ul className="list-unstyled">
-                    <li className="text-success">Satisfactorio: ≥ 20%</li>
-                    <li className="text-primary">Cuasi satisfactorio: 13% - 19.9%</li>
-                    <li className="text-warning">Poco satisfactorio: 7% - 12.9%</li>
-                    <li className="text-danger">Deficiente: &lt; 7%</li>
+          <CTable hover bordered >
+            <CTableHead>
+              <CTableRow>
+                <CTableHeaderCell scope="col">Indicador</CTableHeaderCell>
+                <CTableHeaderCell scope="col">Meta</CTableHeaderCell>
+                <CTableHeaderCell scope="col">Estandar</CTableHeaderCell>
+                <CTableHeaderCell scope="col">Periodicidad</CTableHeaderCell>
+              </CTableRow>
+            </CTableHead>
+            <CTableBody>
+              <CTableRow>
+                <CTableHeaderCell scope="row">Formación Doctoral</CTableHeaderCell>
+                <CTableDataCell>≥ 20%</CTableDataCell>
+                <CTableDataCell>
+                  <ul className="mb-0 ps-3">
+                    <li><strong>Satisfactorio:</strong> ≥ 20%</li>
+                    <li><strong>Cuasi satisfactorio:</strong> ≥ 13% y &lt; 20%</li>
+                    <li><strong>Poco satisfactorio:</strong> ≥ 7% y &lt; 13%</li>
+                    <li><strong>Deficiente:</strong> &lt; 7% o sin doctorado</li>
                   </ul>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody className="d-flex flex-column justify-content-center">
-                  <h5 className="fw-bold">Periodicidad del indicador</h5>
-                  <h6 className="text-warning">Semestral</h6>
-                </CCardBody>
-              </CCard>
-            </CCol>
-          </CRow>
-        </CCardBody>
-      </CCard>
+                </CTableDataCell>
+                <CTableDataCell>Semestral</CTableDataCell>
+              </CTableRow>
 
-      {/* Indicador: Dedicación Tiempo Completo */}
-      <h5 className="mt-4 mb-2 text-muted">Indicador: Dedicación a Tiempo Completo</h5>
-      <CCard className="mb-4">
-        <CCardBody>
-          <CRow className="mb-4">
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody>
-                  <h5 className="fw-bold">Meta</h5>
-                  <h6 className="text-success">≥ 50%</h6>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody>
-                  <h5 className="fw-bold">Estándar</h5>
-                  <ul className="list-unstyled">
-                    <li className="text-success">Satisfactorio: ≥ 50% en todos los periodos</li>
-                    <li className="text-danger">Deficiente: &lt; 50% en algún periodo</li>
+              <CTableRow>
+                <CTableHeaderCell scope="row">Dedicación a Tiempo Completo</CTableHeaderCell>
+                <CTableDataCell>≥ 50%</CTableDataCell>
+                <CTableDataCell>
+                  <ul className="mb-0 ps-3">
+                    <li><strong>Satisfactorio:</strong> ≥ 50% en todos los periodos</li>
+                    <li><strong>Deficiente:</strong> &lt; 50% en algún periodo</li>
                   </ul>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody className="d-flex flex-column justify-content-center">
-                  <h5 className="fw-bold">Periodicidad del indicador</h5>
-                  <h6 className="text-warning">Semestral</h6>
-                </CCardBody>
-              </CCard>
-            </CCol>
-          </CRow>
-        </CCardBody>
-      </CCard>
+                </CTableDataCell>
+                <CTableDataCell>Semestral</CTableDataCell>
+              </CTableRow>
 
-      {/* Indicador: Nombramiento Permanente */}
-      <h5 className="mt-4 mb-2 text-muted">Indicador: Titularidad (Nombramiento Permanente)</h5>
-      <CCard className="mb-4">
-        <CCardBody>
-          <CRow className="mb-4">
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody>
-                  <h5 className="fw-bold">Meta</h5>
-                  <h6 className="text-success">≥ 39%</h6>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody>
-                  <h5 className="fw-bold">Estándar</h5>
-                  <ul className="list-unstyled">
-                    <li className="text-success">Satisfactorio: ≥ 39%</li>
-                    <li className="text-warning">Aceptable: 25% - 38.9%</li>
-                    <li className="text-danger">Deficiente: &lt; 25%</li>
+              <CTableRow>
+                <CTableHeaderCell scope="row">Titularidad (Permanente)</CTableHeaderCell>
+                <CTableDataCell>≥ 35%</CTableDataCell>
+                <CTableDataCell>
+                  <ul className="mb-0 ps-3">
+                    <li><strong>Aceptable:</strong> 25%–39%</li>
+                    <li><strong>Alto:</strong> ≥ 40%</li>
+                    <li><strong>Bajo:</strong> &lt; 25%</li>
                   </ul>
-                </CCardBody>
-              </CCard>
-            </CCol>
-            <CCol md={4}>
-              <CCard className="h-100 text-center">
-                <CCardBody className="d-flex flex-column justify-content-center">
-                  <h5 className="fw-bold">Periodicidad del indicador</h5>
-                  <h6 className="text-warning">Semestral</h6>
-                </CCardBody>
-              </CCard>
-            </CCol>
-          </CRow>
+                </CTableDataCell>
+                <CTableDataCell>Semestral</CTableDataCell>
+              </CTableRow>
+            </CTableBody>
+          </CTable>
         </CCardBody>
       </CCard>
 

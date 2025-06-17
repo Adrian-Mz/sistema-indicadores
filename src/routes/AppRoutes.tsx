@@ -42,9 +42,9 @@ export const routes = [
     section: "Estudiantes",
   },
   {
-    path: "estudiantes/desercion",
+    path: "estudiantes/desercion-retencion",
     element: DesercionPage,
-    title: "Deserción",
+    title: "Deserción y Retención",
     breadcrumb: "Tasa de deserción",
     section: "Estudiantes",
   },
