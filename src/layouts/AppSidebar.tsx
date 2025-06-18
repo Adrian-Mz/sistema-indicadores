@@ -10,7 +10,7 @@ import {
 } from "@coreui/react";
 import { NavLink } from "react-router-dom";
 import CIcon from "@coreui/icons-react";
-import { cilUser, cilEducation, cilPuzzle, cilGraph } from "@coreui/icons";
+import { cilUser, cilEducation, cilPuzzle, cilHome } from "@coreui/icons";
 import { routes } from "../routes/AppRoutes";
 import logoIcon from "../assets/logo-icon-espoch.png";
 
@@ -35,7 +35,6 @@ const iconMap: Record<string, typeof cilUser> = {
   "Personal Académico": cilUser,
   Estudiantes: cilEducation,
   "Funciones de Soporte": cilPuzzle,
-  "Dashboard": cilGraph,
 };
 
 const AppSidebar = () => {
@@ -52,17 +51,24 @@ const AppSidebar = () => {
     >
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand
-          className="d-flex justify-content-center align-items-center w-100"
+          className="d-flex justify-content-center align-items-center"
         >
           <img
             src={logoIcon}
             alt="Logo ESPOCH"
             style={{ height: "45px", width: "auto" }}
           />
+          <span className="ms-2 text-black">ESPOCH ANALYTICS</span>
         </CSidebarBrand>
       </CSidebarHeader>
       <CSidebarNav >
-        <CNavTitle>INICIO</CNavTitle>
+        <CNavItem>
+          <NavLink to="/dashboard" className="nav-link">
+            <CIcon icon={cilHome} className="me-2" />
+            Inicio
+          </NavLink>
+        </CNavItem>
+        <CNavTitle>INDICADORES</CNavTitle>
 
         {Object.entries(groupedRoutes.Inicio).map(([section, items]) => (
           <CNavGroup key={section} toggler={<><CIcon icon={iconMap[section]} /> {section}</>}>

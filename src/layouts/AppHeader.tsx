@@ -39,8 +39,8 @@ export const AppHeader = () => {
           <CNavbarNav className="me-auto">
           </CNavbarNav>
           {session?.user ? (
-            <CDropdown alignment="end">
-              <CDropdownToggle color="primary">
+            <CDropdown alignment="end" dark>
+              <CDropdownToggle className="text-white">
                 <CIcon icon={cilUser} className="me-2" />
                 {session.user.user_metadata.name || session.user.email}
               </CDropdownToggle>

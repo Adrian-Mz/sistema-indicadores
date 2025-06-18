@@ -18,7 +18,6 @@ export const routes = [
     element: DashboardPage,
     title: "Inicio",
     breadcrumb: "Inicio",
-    section: "Dashboard",
   },
   {
     path: "personal/afinidad",

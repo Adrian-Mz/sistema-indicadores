@@ -1,126 +1,120 @@
-import { CCard, CCardBody, CCardTitle, CCardText, CRow, CCol, CButton, CPopover } from "@coreui/react";
-import { useNavigate } from "react-router-dom";
+import {
+  CCard,
+  CCardBody,
+  CCardTitle,
+  CCardText,
+  CRow,
+  CCol,
+} from "@coreui/react";
+import { motion } from "framer-motion";
+import CIcon from "@coreui/icons-react";
+import {
+  cilChartLine,
+  cilSearch,
+  cilLightbulb,
+  cilCursor,
+  cilUser,
+  cilEducation,
+  cilPuzzle,
+} from "@coreui/icons";
 
-const indicadores = [
+const acciones = [
   {
-    titulo: "Titulación",
-    descripcion: "Porcentaje de estudiantes que se titularon en el tiempo esperado.",
-    ruta: "/estudiantes/titulacion",
-    formula: (
-      <div>
-        <strong>Tasa de Titulación = (NET / TE) × 100</strong><br />
-        NET: Nº estudiantes que se titularon en el tiempo esperado<br />
-        TE: Total estudiantes en primer nivel de la cohorte
-      </div>
-    ),
+    titulo: "Explorar Indicadores",
+    descripcion: "Accede a métricas clave sobre titulados, deserción, afinidad docente y más.",
+    icon: cilChartLine,
   },
   {
-    titulo: "Deserción",
-    descripcion: "Tasa de abandono estudiantil por cohorte.",
-    ruta: "/estudiantes/desercion",
-    formula: (
-      <div>
-        <strong>Deserción = (NEAi+δ / NEAi) × 100</strong><br />
-        NEAi: Estudiantes que iniciaron en la cohorte i<br />
-        NEAi+δ: Estudiantes que no continuaron en δ
-      </div>
-    ),
+    titulo: "Analizar Tendencias",
+    descripcion: "Observa la evolución temporal del desempeño académico e institucional.",
+    icon: cilSearch,
   },
   {
-    titulo: "Afinidad del Personal",
-    descripcion: "Relación entre formación y asignaturas dictadas.",
-    ruta: "/personal/afinidad",
-    formula: (
-      <div>
-        <strong>APA = (TAAF / TA) × 100</strong><br />
-        TAAF: Asignaturas con docentes afines<br />
-        TA: Total de asignaturas ofertadas
-      </div>
-    ),
+    titulo: "Apoyar Decisiones",
+    descripcion: "Consulta datos objetivos para respaldar decisiones administrativas.",
+    icon: cilLightbulb,
   },
   {
-    titulo: "Titularidad del Personal",
-    descripcion: "Proporción de personal titular que dictó clases.",
-    ruta: "/personal/titularidad",
-    formula: (
-      <div>
-        <strong>TPP = (PP / TPA) × 100</strong><br />
-        PP: Personal académico titular permanente<br />
-        TPA: Total de personal académico
-      </div>
-    ),
-  },
-  {
-    titulo: "Herramientas Pedagógicas",
-    descripcion: "Evaluación del acceso y funcionalidad de herramientas.",
-    ruta: "/soporte/herramientas",
-    formula: (
-      <div>
-        <strong>HEP = [Σ(α1×FHP + α2×DHP + α3×AHP)] / NHP</strong><br />
-        FHP: Funcionalidad<br />
-        DHP: Disponibilidad<br />
-        AHP: Accesibilidad<br />
-        NHP: Nº total de herramientas
-      </div>
-    ),
-  },
-  {
-    titulo: "Ambientes de Aprendizaje",
-    descripcion: "Calidad de los ambientes educativos disponibles.",
-    ruta: "/soporte/ambientes",
-    formula: (
-      <div>
-        <strong>AP = Σ(FUN + EQI + DIS + ACC) / NAP</strong><br />
-        FUN: Funcionalidad<br />
-        EQI: Equipamiento<br />
-        DIS: Disponibilidad<br />
-        ACC: Accesibilidad<br />
-        NAP: Nº ambientes
-      </div>
-    ),
+    titulo: "Navegación Intuitiva",
+    descripcion: "Interactúa con un entorno amigable y claro para todo tipo de usuario.",
+    icon: cilCursor,
   },
 ];
 
-const DashboardPage = () => {
-  const navigate = useNavigate();
+const indicadores = [
+  { nombre: "Afinidad del Personal", icon: cilUser },
+  { nombre: "Titularidad del Personal", icon: cilUser },
+  { nombre: "Titulación", icon: cilEducation },
+  { nombre: "Deserción y Retención", icon: cilEducation },
+  { nombre: "Herramientas Pedagógicas", icon: cilPuzzle },
+  { nombre: "Ambientes de Aprendizaje", icon: cilPuzzle },
+];
 
+const DashboardPage = () => {
   return (
-    <div>
-      <h2 className="mb-4">Panel de Indicadores Académicos</h2>
-      <p className="text-muted mb-4" style={{ fontSize: "0.95rem" }}>
-        Explora los indicadores clave relacionados con la formación académica, el personal docente y el soporte institucional.
-        Pasa el cursor sobre <strong>"Ver fórmula"</strong> para conocer cómo se calcula cada indicador.
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <h2 className="mb-4 text-center">Bienvenido al Sistema de Indicadores Académicos</h2>
+      <p className="text-muted text-center mb-4" style={{ maxWidth: 800, margin: "0 auto" }}>
+        Este sistema permite visualizar, analizar y respaldar decisiones con base en datos académicos e institucionales de la ESPOCH.
+        Descubre sus funcionalidades principales a continuación.
       </p>
 
-      <CRow className="g-4">
-        {indicadores.map((item) => (
-          <CCol key={item.titulo} xs={12} md={6} xl={4}>
-            <CCard className="h-100 shadow-sm">
-              <CCardBody className="d-flex flex-column justify-content-between">
-                <div>
-                  <CCardTitle className="mb-2" style={{ fontSize: "1.1rem" }}>{item.titulo}</CCardTitle>
+      <CRow className="g-4 mb-5">
+        {acciones.map((item, index) => (
+          <CCol key={item.titulo} xs={12} md={6} xl={3}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15 }}
+            >
+              <CCard className="h-100 shadow-sm border-0 text-center">
+                <CCardBody>
+                  <div className="mb-3">
+                    <CIcon icon={item.icon} size="xxl" style={{ color: "#6610f2" }} />
+                  </div>
+                  <CCardTitle style={{ fontSize: "1.1rem" }}>{item.titulo}</CCardTitle>
                   <CCardText style={{ fontSize: "0.9rem" }}>{item.descripcion}</CCardText>
-                </div>
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <CButton color="primary" onClick={() => navigate(item.ruta)}>
-                    Ver Indicador
-                  </CButton>
-                  <CPopover
-                    content={item.formula}
-                    placement="top"
-                    trigger={['hover', 'focus']}
-                  >
-                    <CButton color="secondary" variant="outline" size="sm">
-                      Ver fórmula
-                    </CButton>
-                  </CPopover>
-                </div>
-              </CCardBody>
-            </CCard>
+                </CCardBody>
+              </CCard>
+            </motion.div>
           </CCol>
         ))}
       </CRow>
-    </div>
+
+      <p className="text-muted text-center mb-3">
+        Puedes acceder a los indicadores desde el menú lateral. A continuación se listan los indicadores disponibles:
+      </p>
+
+      <CRow className="justify-content-center g-4 mb-4">
+        {indicadores.map((item, index) => (
+          <CCol key={index} xs={12} sm={6} md={4} lg={3}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + index * 0.1 }}
+            >
+              <CCard className="h-100 border-0 shadow-sm text-center">
+                <CCardBody>
+                  <div className="mb-2">
+                    <CIcon icon={item.icon} size="xl" style={{ color: "#6f42c1" }} />
+                  </div>
+                  <CCardText style={{ fontWeight: 500 }}>{item.nombre}</CCardText>
+                </CCardBody>
+              </CCard>
+            </motion.div>
+          </CCol>
+        ))}
+      </CRow>
+      <hr className="mb-4" />
+      
+      <div className="text-center text-muted mt-3 mb-4" style={{ fontSize: "0.9rem" }}>
+        Escuela Superior Politécnica de Chimborazo — Carrera de Ingeniería en Software
+      </div>
+    </motion.div>
   );
 };
 
