@@ -41,13 +41,6 @@ const AppSidebar = () => {
   return (
     <CSidebar
       className="border-end"
-      style={{
-        height: "100vh",
-        position: "sticky",
-        top: 0,
-        display: "flex",
-        flexDirection: "column",
-      }}
     >
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand
