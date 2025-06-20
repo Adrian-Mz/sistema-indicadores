@@ -132,5 +132,4 @@
   );
 };
 
-
-  export default AdminDashboardPage;
+export default AdminDashboardPage;

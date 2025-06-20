@@ -5,13 +5,13 @@ import { cilUser, cilCode } from "@coreui/icons";
 const developers = [
   {
     nombre: "Luis Adrián Méndez",
-    rol: "Desarrollador Full Stack",
+    rol: "Estudiante de Ingeniería en Software",
     descripcion:
       "Encargado del diseño de interfaz, integración con dashboards.",
   },
   {
     nombre: "Kevin Saeteros",
-    rol: "Desarrollador Full Stack",
+    rol: "Estudiante de Ingeniería en Software",
     descripcion:
       "Responsable de la arquitectura de datos académicos, manejo de flujos de ETL.",
   },

@@ -9,6 +9,7 @@ import FuentesPage from "../features/pages/desarrollo/FuentesPage";
 import NosotrosPage from "../features/pages/desarrollo/NosotrosPage";
 import PoliticasPage from "../features/pages/desarrollo/PoliticasPage";
 import AdminDashboardPage from "../features/users/admin/page/AdminDashboardPage";
+import UserPerfilPage from "../features/users/users/page/UserPerfilPage";
 
 
 export const routes = [
@@ -82,4 +83,12 @@ export const routes = [
     section: "Administración",
     hidden: true,
   },
+  {
+    path: "/dashboard/perfil",
+    element: UserPerfilPage,
+    title: "Perfil",
+    breadcrumb: "Perfil",
+    section: "Usuarios",
+    hidden: true,
+  }
 ];

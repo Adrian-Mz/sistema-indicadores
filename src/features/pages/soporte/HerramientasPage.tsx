@@ -130,7 +130,7 @@ const HerramientasPage = () => {
         <CCardBody>
           <h6 className="mb-3 text-muted">Resumen gráfico</h6>
           <iframe
-            src="https://lookerstudio.google.com/embed/reporting/tu-informe-id"
+            src="https://lookerstudio.google.com/embed/reporting/9ae6f4e9-9742-404f-b630-246c4e0fffc4/page/p_h3lb8xc8hd"
             width="100%"
             height="1100"
             style={{ border: 0 }}
