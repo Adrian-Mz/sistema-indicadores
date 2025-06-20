@@ -174,6 +174,25 @@ const DocenciaPage = () => {
         </CCardBody>
       </CCard>
 
+            {/* Documentos relacionados */}
+      <CCard className="mb-4">
+        <CCardBody>
+          <h6 className="mb-2">Documentación útil</h6>
+          <ul style={{ fontSize: '0.9rem' }}>
+            <li>
+              <a href="https://www.caces.gob.ec/wp-content/uploads/2023/12/Modelo-de-Evaluacio%CC%81n-Externa-UEP-2023-1.pdf" target="_blank" rel="noreferrer">
+                Modelo de Evaluación Externa UEP 2023
+              </a>
+            </li>
+            <li>
+              <a href="https://www.espoch.edu.ec/wp-content/uploads/2025/05/Normativa-de-Gestion-de-Indicadores.pdf" target="_blank" rel="noreferrer">
+                Normativa de Gestión de Indicadores Institucionales
+              </a>
+            </li>
+          </ul>
+        </CCardBody>
+      </CCard>
+
       {/* FAQ */}
       <CCard>
         <CCardBody>

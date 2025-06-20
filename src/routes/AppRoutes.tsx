@@ -1,13 +1,12 @@
 // src/routes/AppRoutes.tsx
 import DashboardPage from "../features/dashboard/page/DashboardPage";
-import AfinidadPage from "../features/pages/personal/AfinidadPage";
 import DocenciaPage from "../features/pages/personal/DocenciaPage";
 import TitulacionPage from "../features/pages/estudiantes/TitulacionPage";
 import DesercionPage from "../features/pages/estudiantes/DesercionPage";
 import HerramientasPage from "../features/pages/soporte/HerramientasPage";
 import AmbientesPage from "../features/pages/soporte/AmbientesPage";
 import FuentesPage from "../features/pages/desarrollo/FuentesPage";
-import NosotrosPage from "../features/pages/desarrollo/NostrosPage";
+import NosotrosPage from "../features/pages/desarrollo/NosotrosPage";
 import PoliticasPage from "../features/pages/desarrollo/PoliticasPage";
 import AdminDashboardPage from "../features/users/admin/page/AdminDashboardPage";
 
@@ -18,13 +17,6 @@ export const routes = [
     element: DashboardPage,
     title: "Inicio",
     breadcrumb: "Inicio",
-  },
-  {
-    path: "personal/afinidad",
-    element: AfinidadPage,
-    title: "Afinidad",
-    breadcrumb: "Afinidad del personal académico",
-    section: "Personal Académico",
   },
   {
     path: "personal/Docencia",
