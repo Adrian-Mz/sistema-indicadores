@@ -14,7 +14,7 @@ interface User {
   id: string;
   email: string;
   full_name: string;
-  role: string;
+  role: "user" | "admin";
 }
 
 interface Props {

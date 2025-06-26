@@ -11,13 +11,20 @@ export type User = {
 };
 
 // Obtener todos los perfiles
-export const getAllProfiles = async () => {
+export const getAllProfiles = async (): Promise<User[]> => {
   const { data, error } = await supabase.from("profiles").select("*");
   if (error) {
     console.error("Error al obtener usuarios:", error.message);
     return [];
   }
-  return data;
+
+  // Asegura que los datos tienen el tipo correcto
+  return (data ?? []).map((item) => ({
+    id: item.id,
+    full_name: item.full_name,
+    email: item.email,
+    role: item.role as "user" | "admin", // 🔴 sin esto el tipo queda como string
+  }));
 };
 
 // Obtener un perfil por ID
@@ -37,7 +44,10 @@ export const getProfileById = async (id: string) => {
 };
 
 // Crear actualizar un perfil
-export const upsertProfile = async (user: { id: string; full_name: string; email: string; role: string }) => {
+ export const upsertProfile = async (user: { id: string; full_name: string; email: string; role: string }) => {
+  console.log("Actualizando usuario con ID:", user.id);
+  console.log("Intentando actualizar:", user);
+
   const { data, error } = await supabase
     .from("profiles")
     .update({
@@ -45,23 +55,39 @@ export const upsertProfile = async (user: { id: string; full_name: string; email
       email: user.email,
       role: user.role,
     })
-    .eq("id", user.id);
+    .eq("id", user.id)
+    .select();  // 👈 NECESARIO para que devuelva filas actualizadas
 
   if (error) {
     console.error("Error actualizando usuario:", error.message);
     return null;
   }
 
+  console.log("Actualizando con:", user);
+
+  if (data.length === 0) {
+    console.warn("⚠️ No se actualizó ninguna fila. Revisa si el ID es correcto.");
+  }
+
   return data;
 };
 
+
+
+
 // Eliminar un perfil
 export const deleteProfile = async (id: string) => {
-  const { data, error } = await supabase.from("profiles").delete().eq("id", id);
+  const { data, error } = await supabase
+    .from("profiles")
+    .delete()
+    .eq("id", id)
+    .select(); // 🔑 Esto también es clave para que devuelva algo
+
   if (error) {
     console.error("Error eliminando usuario:", error.message);
     return null;
   }
+
   return data;
 };
 

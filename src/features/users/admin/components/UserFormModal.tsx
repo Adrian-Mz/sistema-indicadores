@@ -60,7 +60,10 @@ export const UserFormModal = ({ visible, onClose, onSave, user }: UserFormModalP
         <CButton color="secondary" onClick={onClose}>Cancelar</CButton>
         <CButton 
           color="primary" 
-          onClick={() => onSave(form)}
+          onClick={() => {
+            const { id, full_name, email, role } = form;
+            onSave({ id, full_name, email, role });
+          }}
           disabled={!form.full_name || !form.email || !form.role}
         >
           Guardar

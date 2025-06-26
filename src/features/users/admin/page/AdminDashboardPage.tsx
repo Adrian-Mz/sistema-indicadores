@@ -10,13 +10,7 @@
   import { UserFormModal } from "../components/UserFormModal";
   import { ConfirmDeleteModal } from "../components/ConfirmModalDelete";
   import UserList from "../components/UserList";
-
- type User = {
-    id: string;
-    full_name: string;
-    email: string;
-    role: "user" | "admin";
-  }
+  import type { User } from "../services/adminServices";
 
   const AdminDashboardPage = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -35,15 +29,17 @@
   };
 
   const handleSave = async (user: User) => {
+    console.log("Actualizando usuario con ID:", user.id);
     try {
       if (!user.id) {
         await createUserWithAuthAndProfile(user);
         setSuccessMessage("Usuario creado correctamente.");
       } else {
-        await upsertProfile(user);
+        const data = await upsertProfile(user);
+        console.log("Guardado:", data); // 👈 Debe mostrar el array actualizado
         setSuccessMessage("Usuario actualizado correctamente.");
       }
-      fetchUsers();
+      await fetchUsers(); // asegúrate que refresque
       setModalVisible(false);
       setErrorMessage("");
     } catch (error) {
@@ -52,13 +48,23 @@
     }
   };
 
+
   const handleDelete = async () => {
     if (!selectedUser) return;
+
+    console.log("🗑️ Eliminando usuario:", selectedUser);
+
     try {
-      await deleteProfile(selectedUser.id);
+      const result = await deleteProfile(selectedUser.id);
+      if (!result) {
+        setErrorMessage("No se pudo eliminar el usuario.");
+        return;
+      }
+
       setSuccessMessage("Usuario eliminado correctamente.");
       fetchUsers();
     } catch (error) {
+      console.error("Error en eliminación:", error);
       setErrorMessage("No se pudo eliminar el usuario." + error);
     } finally {
       setDeleteVisible(false);
