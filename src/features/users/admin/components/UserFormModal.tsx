@@ -29,6 +29,7 @@ const defaultUser: User = { id: "", full_name: "", email: "", role: "user" };
 
 export const UserFormModal = ({ visible, onClose, onSave, user }: UserFormModalProps) => {
   const [form, setForm] = useState<User>(defaultUser);
+  const isEditing = !!user?.id;
 
   useEffect(() => {
     setForm(user || defaultUser);
@@ -41,30 +42,44 @@ export const UserFormModal = ({ visible, onClose, onSave, user }: UserFormModalP
   return (
     <CModal alignment="center" visible={visible} onClose={onClose}>
       <CModalHeader>
-        <CModalTitle>{form.id ? "Editar Usuario" : "Nuevo Usuario"}</CModalTitle>
+        <CModalTitle>{isEditing ? "Editar Usuario" : "Nuevo Usuario"}</CModalTitle>
       </CModalHeader>
       <CModalBody>
         <CFormLabel>Nombre Completo</CFormLabel>
-        <CFormInput name="full_name" value={form.full_name} onChange={handleChange} />
+        <CFormInput
+          name="full_name"
+          value={form.full_name}
+          onChange={handleChange}
+        />
 
         <CFormLabel>Email</CFormLabel>
-        <CFormInput name="email" type="email" value={form.email} onChange={handleChange} />
+        <CFormInput
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          disabled={isEditing}
+        />
 
-        <CFormLabel>Rol</CFormLabel>
-        <CFormSelect name="role" value={form.role} onChange={handleChange}>
-          <option value="user">Usuario</option>
-          <option value="admin">Administrador</option>
-        </CFormSelect>
+        {!isEditing && (
+          <>
+            <CFormLabel>Rol</CFormLabel>
+            <CFormSelect name="role" value={form.role} onChange={handleChange}>
+              <option value="user">Usuario</option>
+              <option value="admin">Administrador</option>
+            </CFormSelect>
+          </>
+        )}
       </CModalBody>
       <CModalFooter>
         <CButton color="secondary" onClick={onClose}>Cancelar</CButton>
         <CButton 
-          color="primary" 
+          color="primary"
           onClick={() => {
             const { id, full_name, email, role } = form;
             onSave({ id, full_name, email, role });
           }}
-          disabled={!form.full_name || !form.email || !form.role}
+          disabled={!form.full_name || !form.email || (!form.role && !isEditing)}
         >
           Guardar
         </CButton>
