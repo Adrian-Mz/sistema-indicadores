@@ -1,19 +1,15 @@
-import { CCard, CCardBody, CCardTitle, CCardText, CRow, CCol } from "@coreui/react";
+import { CCard, CCardBody, CCardTitle, CRow, CCol } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilUser, cilCode } from "@coreui/icons";
 
 const developers = [
   {
-    nombre: "Luis Adrián Méndez",
-    rol: "Estudiante de Ingeniería en Software",
-    descripcion:
-      "Encargado del diseño de interfaz, integración con dashboards.",
+    nombre: "Persona 1",
+    rol: "Estudiante de Ingeniería en Software"
   },
   {
-    nombre: "Kevin Saeteros",
-    rol: "Estudiante de Ingeniería en Software",
-    descripcion:
-      "Responsable de la arquitectura de datos académicos, manejo de flujos de ETL.",
+    nombre: "Persona 2",
+    rol: "Estudiante de Ingeniería en Software"
   },
 ];
 
@@ -37,9 +33,6 @@ const NosotrosPage = () => {
                     <small className="text-muted">{dev.rol}</small>
                   </div>
                 </div>
-                <CCardText style={{ fontSize: "0.9rem" }}>
-                  {dev.descripcion}
-                </CCardText>
               </CCardBody>
             </CCard>
           </CCol>

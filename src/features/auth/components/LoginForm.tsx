@@ -115,13 +115,6 @@ const LoginForm = () => {
       >
         {loading ? "Ingresando..." : "Inicar sesión"}
       </CButton>
-
-      <div className="text-center text-sm mt-4">
-        ¿No tienes una cuenta?{" "}
-        <Link to="/signup" className="text-blue-500 hover:underline">
-          Regístrate
-        </Link>
-      </div>
     </CForm>
   );
 };
