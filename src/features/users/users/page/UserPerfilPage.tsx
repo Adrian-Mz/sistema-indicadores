@@ -9,28 +9,32 @@ import {
   CFormLabel,
   CFormInput,
   CButton,
-  CAlert,
+  CCollapse,
+  CAlert
 } from "@coreui/react";
+import { Eye, EyeOff } from "lucide-react";
 
 type UserProfile = {
   id: string;
   full_name: string;
   email: string;
-  role: string;
 };
-
 
 const UserPerfilPage = () => {
   const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [collapseVisible, setCollapseVisible] = useState(false);
 
   useEffect(() => {
     const fetchProfile = async () => {
       const { data: session } = await supabase.auth.getSession();
       const user = session?.session?.user;
       if (user) {
-        const { data } = await supabase.from("profiles").select("*").eq("id", user.id).single();
+        const { data } = await supabase.from("profiles").select("id, full_name, email").eq("id", user.id).single();
         setProfile(data);
       }
     };
@@ -39,42 +43,110 @@ const UserPerfilPage = () => {
   }, []);
 
   const handleChangePassword = async () => {
-    const { error } = await supabase.auth.updateUser({ password });
-    setMessage(error ? "Error al cambiar la contraseña." : "Contraseña actualizada con éxito.");
+    setMessage("");
+    setError("");
+
+    if (newPassword.length < 6) {
+      setError("La contraseña debe tener al menos 6 caracteres.");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      setError("Las contraseñas no coinciden.");
+      return;
+    }
+
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    if (error) {
+      setError("Ocurrió un error al cambiar la contraseña.");
+    } else {
+      setMessage("✅ Contraseña actualizada correctamente.");
+      setNewPassword("");
+      setConfirmPassword("");
+      setCollapseVisible(false);
+    }
   };
 
   return (
-    <div className="p-3">
-      <h4 className="mb-3 fw-semibold">Mi Perfil</h4>
+    <div className="max-w-xl mx-auto p-4">
+      <h4 className="mb-4 fw-semibold text-center text-lg">Mi Perfil</h4>
+
       {profile && (
-        <CCard>
+        <CCard className="mb-4">
           <CCardBody>
-            <CCardTitle>{profile.full_name}</CCardTitle>
-            <CCardText className="mb-1"><strong>Email:</strong> {profile.email}</CCardText>
-            <CCardText><strong>Rol:</strong> {profile.role}</CCardText>
+            <CCardTitle className="text-xl mb-2">{profile.full_name}</CCardTitle>
+            <CCardText>
+              <strong>Correo:</strong> {profile.email}
+            </CCardText>
           </CCardBody>
         </CCard>
       )}
 
-      <CCard className="mt-4">
-        <CCardBody>
-          <h6 className="mb-3">Cambiar Contraseña</h6>
-          <CForm onSubmit={(e) => {
-            e.preventDefault();
-            handleChangePassword();
-          }}>
-            <CFormLabel>Nueva contraseña</CFormLabel>
-            <CFormInput
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="********"
-            />
-            <CButton color="primary" type="submit" className="mt-3">Actualizar</CButton>
-          </CForm>
-          {message && <CAlert color="info" className="mt-3">{message}</CAlert>}
-        </CCardBody>
-      </CCard>
+      <CButton
+        color="secondary"
+        variant="outline"
+        className="w-full mb-3"
+        onClick={() => setCollapseVisible(!collapseVisible)}
+      >
+        {collapseVisible ? "Cancelar cambio de contraseña" : "Cambiar contraseña"}
+      </CButton>
+
+      <CCollapse visible={collapseVisible}>
+        <CCard>
+          <CCardBody>
+            <CForm
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleChangePassword();
+              }}
+            >
+              <div className="mb-3">
+                <CFormLabel>Nueva contraseña</CFormLabel>
+                <div className="relative">
+                  <CFormInput
+                    type={showPassword ? "text" : "password"}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="********"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="mb-3">
+                <CFormLabel>Confirmar contraseña</CFormLabel>
+                <CFormInput
+                  type={showPassword ? "text" : "password"}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="********"
+                />
+              </div>
+
+              <CButton type="submit" color="primary" className="w-full">
+                Actualizar contraseña
+              </CButton>
+            </CForm>
+
+            {message && (
+              <CAlert color="success" className="mt-3 text-center">
+                {message}
+              </CAlert>
+            )}
+            {error && (
+              <CAlert color="danger" className="mt-3 text-center">
+                {error}
+              </CAlert>
+            )}
+          </CCardBody>
+        </CCard>
+      </CCollapse>
     </div>
   );
 };

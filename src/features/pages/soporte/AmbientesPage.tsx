@@ -129,9 +129,9 @@ const AmbientesPage = () => {
         <CCardBody>
           <h6 className="mb-3 text-muted">Resumen gráfico</h6>
           <iframe
-            src="https://lookerstudio.google.com/embed/reporting/tu-informe-id"
+            src="https://lookerstudio.google.com/embed/reporting/41c61f4a-7bba-4841-ba10-36afe294ed82/page/p_h3lb8xc8hd"
             width="100%"
-            height="1100"
+            height="1000"
             style={{ border: 0 }}
             allowFullScreen
             title="Indicador Ambientes de Aprendizaje"
