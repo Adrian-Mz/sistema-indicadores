@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 import CIcon from "@coreui/icons-react";
 import {
   cilChartLine,
-  cilSearch,
   cilLightbulb,
   cilCursor,
   cilUser,
@@ -25,11 +24,6 @@ const acciones = [
     icon: cilChartLine,
   },
   {
-    titulo: "Analizar Tendencias",
-    descripcion: "Observa la evolución temporal del desempeño académico e institucional.",
-    icon: cilSearch,
-  },
-  {
     titulo: "Apoyar Decisiones",
     descripcion: "Consulta datos objetivos para respaldar decisiones administrativas.",
     icon: cilLightbulb,
@@ -42,8 +36,7 @@ const acciones = [
 ];
 
 const indicadores = [
-  { nombre: "Afinidad del Personal", icon: cilUser },
-  { nombre: "Titularidad del Personal", icon: cilUser },
+  { nombre: "Personal Académico", icon: cilUser },
   { nombre: "Titulación", icon: cilEducation },
   { nombre: "Deserción y Retención", icon: cilEducation },
   { nombre: "Herramientas Pedagógicas", icon: cilPuzzle },
@@ -61,7 +54,7 @@ const DashboardPage = () => {
 
       <CRow className="g-4 mb-5">
         {acciones.map((item, index) => (
-          <CCol key={item.titulo} xs={12} md={6} xl={3}>
+          <CCol key={item.titulo} xs={6} md={6} xl={4}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
