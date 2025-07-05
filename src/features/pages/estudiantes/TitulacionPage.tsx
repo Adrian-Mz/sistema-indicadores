@@ -61,61 +61,64 @@ const TitulacionPage = () => {
                 </CCardText>
               </CCol>
             </CRow>
+
+            <hr className="mb-4" />
+            {/* Estandares clave */}
+            <CRow className="mb-5">
+              <CCol md={4}>
+                <CCard className="h-100 text-center">
+                  <CCardBody className="d-flex flex-column justify-content-center">
+                    <h5 className="fw-bold">Meta Institucional</h5>
+                    <h5 className="text-success">Entre 33% y 50% en los próximos años</h5>
+                  </CCardBody>
+                </CCard>
+              </CCol>
+
+              <CCol md={4}>
+                <CCard className="h-100 text-center">
+                  <CCardBody>
+                    <h5 className="fw-bold mb-3">Estándar de Titulación</h5>
+
+                    <CRow className="g-2">
+                      <CCol xs={12}>
+                        <div className="p-2 bg-success text-white rounded">
+                          Satisfactorio: ≥ 50%
+                        </div>
+                      </CCol>
+                      <CCol xs={12}>
+                        <div className="p-2 bg-primary text-white rounded">
+                          Cuasi satisfactorio: ≥ 33% y &lt; 50%
+                        </div>
+                      </CCol>
+                      <CCol xs={12}>
+                        <div className="p-2 bg-warning text-dark rounded">
+                          Poco satisfactorio: ≥ 16% y &lt; 33%
+                        </div>
+                      </CCol>
+                      <CCol xs={12}>
+                        <div className="p-2 bg-danger text-white rounded">
+                          Deficiente: &lt; 16%
+                        </div>
+                      </CCol>
+                    </CRow>
+                  </CCardBody>
+                </CCard>
+              </CCol>
+
+              <CCol md={4}>
+                <CCard className="h-100 text-center">
+                  <CCardBody className="d-flex flex-column justify-content-center">
+                    <h5 className="fw-bold">Periodicidad del indicador</h5>
+                    <h5 className="text-warning">Semestral</h5>
+                  </CCardBody>
+                </CCard>
+              </CCol>
+            </CRow>
           </CCollapse>
         </CCardBody>
       </CCard>
 
-      {/* Estandares clave */}
-      <CRow className="mb-5">
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Meta Institucional</h5>
-              <h5 className="text-success">Entre 33% y 50% en los próximos años</h5>
-            </CCardBody>
-          </CCard>
-        </CCol>
-
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody>
-              <h5 className="fw-bold mb-3">Estándar de Titulación</h5>
-
-              <CRow className="g-2">
-                <CCol xs={12}>
-                  <div className="p-2 bg-success text-white rounded">
-                    Satisfactorio: ≥ 50%
-                  </div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-primary text-white rounded">
-                    Cuasi satisfactorio: ≥ 33% y &lt; 50%
-                  </div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-warning text-dark rounded">
-                    Poco satisfactorio: ≥ 16% y &lt; 33%
-                  </div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-danger text-white rounded">
-                    Deficiente: &lt; 16%
-                  </div>
-                </CCol>
-              </CRow>
-            </CCardBody>
-          </CCard>
-        </CCol>
-
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Periodicidad del indicador</h5>
-              <h5 className="text-warning">Semestral</h5>
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
+      
 
       {/* Mini dashboard */}
       <CCard className="mb-4">

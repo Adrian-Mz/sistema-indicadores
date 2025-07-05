@@ -99,64 +99,65 @@ const DocenciaPage = () => {
                 </CCardText>
               </CCol>
             </CRow>
+            <hr className="mb-4" />
+
+            {/* Estandares clave */}
+            <h5 className="mt-4 mb-2 text-muted">Indicador: Formación Doctoral</h5>
+            <CCard className="mb-4">
+              <CCardBody>
+                <CTable hover bordered >
+                  <CTableHead>
+                    <CTableRow>
+                      <CTableHeaderCell scope="col">Indicador</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Meta</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Estandar</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Periodicidad</CTableHeaderCell>
+                    </CTableRow>
+                  </CTableHead>
+                  <CTableBody>
+                    <CTableRow>
+                      <CTableHeaderCell scope="row">Formación Doctoral</CTableHeaderCell>
+                      <CTableDataCell>≥ 20%</CTableDataCell>
+                      <CTableDataCell>
+                        <ul className="mb-0 ps-3">
+                          <li><strong>Satisfactorio:</strong> ≥ 20%</li>
+                          <li><strong>Cuasi satisfactorio:</strong> ≥ 13% y &lt; 20%</li>
+                          <li><strong>Poco satisfactorio:</strong> ≥ 7% y &lt; 13%</li>
+                          <li><strong>Deficiente:</strong> &lt; 7% o sin doctorado</li>
+                        </ul>
+                      </CTableDataCell>
+                      <CTableDataCell>Semestral</CTableDataCell>
+                    </CTableRow>
+
+                    <CTableRow>
+                      <CTableHeaderCell scope="row">Dedicación a Tiempo Completo</CTableHeaderCell>
+                      <CTableDataCell>≥ 50%</CTableDataCell>
+                      <CTableDataCell>
+                        <ul className="mb-0 ps-3">
+                          <li><strong>Satisfactorio:</strong> ≥ 50% en todos los periodos</li>
+                          <li><strong>Deficiente:</strong> &lt; 50% en algún periodo</li>
+                        </ul>
+                      </CTableDataCell>
+                      <CTableDataCell>Semestral</CTableDataCell>
+                    </CTableRow>
+
+                    <CTableRow>
+                      <CTableHeaderCell scope="row">Titularidad (Permanente)</CTableHeaderCell>
+                      <CTableDataCell>≥ 35%</CTableDataCell>
+                      <CTableDataCell>
+                        <ul className="mb-0 ps-3">
+                          <li><strong>Aceptable:</strong> 25%–39%</li>
+                          <li><strong>Alto:</strong> ≥ 40%</li>
+                          <li><strong>Bajo:</strong> &lt; 25%</li>
+                        </ul>
+                      </CTableDataCell>
+                      <CTableDataCell>Semestral</CTableDataCell>
+                    </CTableRow>
+                  </CTableBody>
+                </CTable>
+              </CCardBody>
+            </CCard>
           </CCollapse>
-        </CCardBody>
-      </CCard>
-
-      {/* Indicadores metas, estándares y periodicidad */}
-      <h5 className="mt-4 mb-2 text-muted">Indicador: Formación Doctoral</h5>
-      <CCard className="mb-4">
-        <CCardBody>
-          <CTable hover bordered >
-            <CTableHead>
-              <CTableRow>
-                <CTableHeaderCell scope="col">Indicador</CTableHeaderCell>
-                <CTableHeaderCell scope="col">Meta</CTableHeaderCell>
-                <CTableHeaderCell scope="col">Estandar</CTableHeaderCell>
-                <CTableHeaderCell scope="col">Periodicidad</CTableHeaderCell>
-              </CTableRow>
-            </CTableHead>
-            <CTableBody>
-              <CTableRow>
-                <CTableHeaderCell scope="row">Formación Doctoral</CTableHeaderCell>
-                <CTableDataCell>≥ 20%</CTableDataCell>
-                <CTableDataCell>
-                  <ul className="mb-0 ps-3">
-                    <li><strong>Satisfactorio:</strong> ≥ 20%</li>
-                    <li><strong>Cuasi satisfactorio:</strong> ≥ 13% y &lt; 20%</li>
-                    <li><strong>Poco satisfactorio:</strong> ≥ 7% y &lt; 13%</li>
-                    <li><strong>Deficiente:</strong> &lt; 7% o sin doctorado</li>
-                  </ul>
-                </CTableDataCell>
-                <CTableDataCell>Semestral</CTableDataCell>
-              </CTableRow>
-
-              <CTableRow>
-                <CTableHeaderCell scope="row">Dedicación a Tiempo Completo</CTableHeaderCell>
-                <CTableDataCell>≥ 50%</CTableDataCell>
-                <CTableDataCell>
-                  <ul className="mb-0 ps-3">
-                    <li><strong>Satisfactorio:</strong> ≥ 50% en todos los periodos</li>
-                    <li><strong>Deficiente:</strong> &lt; 50% en algún periodo</li>
-                  </ul>
-                </CTableDataCell>
-                <CTableDataCell>Semestral</CTableDataCell>
-              </CTableRow>
-
-              <CTableRow>
-                <CTableHeaderCell scope="row">Titularidad (Permanente)</CTableHeaderCell>
-                <CTableDataCell>≥ 35%</CTableDataCell>
-                <CTableDataCell>
-                  <ul className="mb-0 ps-3">
-                    <li><strong>Aceptable:</strong> 25%–39%</li>
-                    <li><strong>Alto:</strong> ≥ 40%</li>
-                    <li><strong>Bajo:</strong> &lt; 25%</li>
-                  </ul>
-                </CTableDataCell>
-                <CTableDataCell>Semestral</CTableDataCell>
-              </CTableRow>
-            </CTableBody>
-          </CTable>
         </CCardBody>
       </CCard>
 

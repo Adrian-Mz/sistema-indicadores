@@ -83,75 +83,78 @@ const DesercionPage = () => {
                   </CCardText>
                 </CCol>
               </CRow>
+
+              <hr className="mb-4" />              
+
+              {/* Estándar Deserción */}
+              <h5 className="fw-bold mb-3 text-muted">Indicador: Deserción</h5>
+              <CRow className="mb-4">
+                <CCol md={4}>
+                  <CCard className="h-100 text-center">
+                    <CCardBody className="d-flex flex-column justify-content-center">
+                      <h5 className="fw-bold">Meta Deserción</h5>
+                      <h6 className="text-success">Entre 14% y 18% en 2 años</h6>
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+                <CCol md={4}>
+                  <CCard className="h-100 text-center">
+                    <CCardBody>
+                      <h5 className="fw-bold mb-3">Estándar de Deserción</h5>
+                      <CRow className="g-2">
+                        <CCol xs={12}>
+                          <div className="p-2 bg-success text-white rounded">Satisfactorio: ≤ 14%</div>
+                        </CCol>
+                        <CCol xs={12}>
+                          <div className="p-2 bg-primary text-white rounded">Cuasi satisfactorio: &gt; 14% y ≤ 18%</div>
+                        </CCol>
+                        <CCol xs={12}>
+                          <div className="p-2 bg-warning text-dark rounded">Poco satisfactorio: &gt; 18% y ≤ 23%</div>
+                        </CCol>
+                        <CCol xs={12}>
+                          <div className="p-2 bg-danger text-white rounded">Deficiente: &gt; 23%</div>
+                        </CCol>
+                      </CRow>
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+                <CCol md={4}>
+                  <CCard className="h-100 text-center">
+                    <CCardBody className="d-flex flex-column justify-content-center">
+                      <h5 className="fw-bold">Periodicidad del indicador</h5>
+                      <h6 className="text-warning">Semestral</h6>
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+              </CRow>
+
+              <hr className="mb-4" />
+
+              {/* Estándar Retención */}
+              <h5 className="fw-bold mb-3 text-muted">Indicador: Retención</h5>
+              <CRow className="mb-4">
+                <CCol md={6}>
+                  <CCard className="h-100 text-center">
+                    <CCardBody className="d-flex flex-column justify-content-center">
+                      <h5 className="fw-bold">Meta Retención</h5>
+                      <h6 className="text-success">Igual o superior al 86%</h6>
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+                <CCol md={6}>
+                  <CCard className="h-100 text-center">
+                    <CCardBody className="d-flex flex-column justify-content-center">
+                      <h5 className="fw-bold">Periodicidad del indicador</h5>
+                      <h6 className="text-warning">Semestral</h6>
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+              </CRow>
             </CCollapse>
         </CCardBody>
       </CCard>
 
-      {/* Estándar Deserción */}
-      <h5 className="fw-bold mb-3 text-muted">Indicador: Deserción</h5>
-      <CRow className="mb-4">
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Meta Deserción</h5>
-              <h6 className="text-success">Entre 14% y 18% en 2 años</h6>
-            </CCardBody>
-          </CCard>
-        </CCol>
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody>
-              <h5 className="fw-bold mb-3">Estándar de Deserción</h5>
-              <CRow className="g-2">
-                <CCol xs={12}>
-                  <div className="p-2 bg-success text-white rounded">Satisfactorio: ≤ 14%</div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-primary text-white rounded">Cuasi satisfactorio: &gt; 14% y ≤ 18%</div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-warning text-dark rounded">Poco satisfactorio: &gt; 18% y ≤ 23%</div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-danger text-white rounded">Deficiente: &gt; 23%</div>
-                </CCol>
-              </CRow>
-            </CCardBody>
-          </CCard>
-        </CCol>
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Periodicidad del indicador</h5>
-              <h6 className="text-warning">Semestral</h6>
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
-
-      <hr className="mb-4" />
-
-      {/* Estándar Retención */}
-      <h5 className="fw-bold mb-3 text-muted">Indicador: Retención</h5>
-      <CRow className="mb-4">
-        <CCol md={6}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Meta Retención</h5>
-              <h6 className="text-success">Igual o superior al 86%</h6>
-            </CCardBody>
-          </CCard>
-        </CCol>
-        <CCol md={6}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Periodicidad del indicador</h5>
-              <h6 className="text-warning">Semestral</h6>
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
-
+    
       {/* Mini dashboard */}
       <CCard className="mb-4">
         <CCardBody>

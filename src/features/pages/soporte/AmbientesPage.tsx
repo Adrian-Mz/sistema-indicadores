@@ -76,53 +76,55 @@ const AmbientesPage = () => {
                 </CCardText>
               </CCol>
             </CRow>
+
+            <hr className="mb-4" />
+            
+            {/* Estándares clave */}
+            <CRow className="mb-5">
+              <CCol md={4}>
+                <CCard className="h-100 text-center">
+                  <CCardBody className="d-flex flex-column justify-content-center">
+                    <h5 className="fw-bold">Meta Institucional</h5>
+                    <h5 className="text-success">70% de ambientes físicos hasta el 2026</h5>
+                  </CCardBody>
+                </CCard>
+              </CCol>
+
+              <CCol md={4}>
+                <CCard className="h-100 text-center">
+                  <CCardBody>
+                    <h5 className="fw-bold mb-3">Estándar del Indicador</h5>
+
+                    <CRow className="g-2">
+                      <CCol xs={12}>
+                        <div className="p-2 bg-success text-white rounded">Satisfactorio: ≥ 70%</div>
+                      </CCol>
+                      <CCol xs={12}>
+                        <div className="p-2 bg-primary text-white rounded">Cuasi satisfactorio: ≥ 50% y &lt; 70%</div>
+                      </CCol>
+                      <CCol xs={12}>
+                        <div className="p-2 bg-warning text-dark rounded">Poco satisfactorio: ≥ 30% y &lt; 50%</div>
+                      </CCol>
+                      <CCol xs={12}>
+                        <div className="p-2 bg-danger text-white rounded">Deficiente: &lt; 30%</div>
+                      </CCol>
+                    </CRow>
+                  </CCardBody>
+                </CCard>
+              </CCol>
+
+              <CCol md={4}>
+                <CCard className="h-100 text-center">
+                  <CCardBody className="d-flex flex-column justify-content-center">
+                    <h5 className="fw-bold">Periodicidad del indicador</h5>
+                    <h5 className="text-warning">Semestral</h5>
+                  </CCardBody>
+                </CCard>
+              </CCol>
+            </CRow>
           </CCollapse>
         </CCardBody>
       </CCard>
-
-      {/* Estándares clave */}
-      <CRow className="mb-5">
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Meta Institucional</h5>
-              <h5 className="text-success">70% de ambientes físicos hasta el 2026</h5>
-            </CCardBody>
-          </CCard>
-        </CCol>
-
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody>
-              <h5 className="fw-bold mb-3">Estándar del Indicador</h5>
-
-              <CRow className="g-2">
-                <CCol xs={12}>
-                  <div className="p-2 bg-success text-white rounded">Satisfactorio: ≥ 70%</div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-primary text-white rounded">Cuasi satisfactorio: ≥ 50% y &lt; 70%</div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-warning text-dark rounded">Poco satisfactorio: ≥ 30% y &lt; 50%</div>
-                </CCol>
-                <CCol xs={12}>
-                  <div className="p-2 bg-danger text-white rounded">Deficiente: &lt; 30%</div>
-                </CCol>
-              </CRow>
-            </CCardBody>
-          </CCard>
-        </CCol>
-
-        <CCol md={4}>
-          <CCard className="h-100 text-center">
-            <CCardBody className="d-flex flex-column justify-content-center">
-              <h5 className="fw-bold">Periodicidad del indicador</h5>
-              <h5 className="text-warning">Semestral</h5>
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
 
       {/* Mini dashboard */}
       <CCard className="mb-4">
