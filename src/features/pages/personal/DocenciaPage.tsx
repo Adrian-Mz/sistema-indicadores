@@ -5,7 +5,6 @@ import {
   CRow,
   CCol,
   CButton,
-  CPopover,
   CAlert,
   CCollapse,
   CTable,
@@ -19,6 +18,7 @@ import { useState } from 'react';
 
 const DocenciaPage = () => {
   const [visible, setVisible] = useState(false);
+  const [showFormula, setShowFormula] = useState(false);
   const [faq1, setFaq1] = useState(false);
   const [faq2, setFaq2] = useState(false);
 
@@ -47,31 +47,59 @@ const DocenciaPage = () => {
               Más información
             </CButton>
 
-            <CPopover
-              content={
-                <div>
-                  <strong>Fórmula: Formación Doctoral</strong><br />
-                  (N° docentes con PhD / Total de docentes) × 100
-
-                  <hr className="mb-4" />
-
-                  <strong>Fórmula: Dedicación a Tiempo Completo</strong><br />
-                  (N° docentes con dedicación TC en todos los periodos / Total de docentes) × 100
-
-                  <hr className="mb-4" />
-
-                  <strong>Fórmula: Titularidad (Permanente)</strong><br />
-                  (N° docentes con nombramiento titular / Total de docentes) × 100
-                </div>
-              }
-              placement="right"
-              trigger={['hover', 'focus']}
+            <CButton
+              color="info"
+              variant="outline"
+              onClick={() => setShowFormula(!showFormula)}
             >
-              <CButton color="info" variant="outline">Ver fórmulas</CButton>
-            </CPopover>
+              {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
+            </CButton>
+            <CCollapse visible={showFormula} className="mt-3">
+              <CCardText className="p-3">
+                <div className="d-flex justify-content-between gap-4" style={{ fontSize: '0.9rem' }}>
+                  <div className="flex-fill pe-3 border-end">
+                    <strong>Tasa de personal académico con formación doctoral</strong>
+                    <br />
+                    <span>TPAFD = 100 × (TPhD / TP)</span>
+                    <br />
+                    <strong>Donde:</strong>
+                    <ul className="mt-2">
+                      <li><strong>TPAFD</strong>: Tasa de personal académico con formación doctoral.</li>
+                      <li><strong>TPhD</strong>: Total de docentes con formación doctoral.</li>
+                      <li><strong>TP</strong>: Total de docentes vinculados en el periodo.</li>
+                    </ul>
+                  </div>
+                  <div className="flex-fill px-3 border-end">
+                    <strong>Tasa de personal académico con dedicación a tiempo completo</strong>
+                    <br />
+                    <span>TPTC = 100 × (PTC / TP)</span>
+                    <br />
+                    <strong>Donde:</strong>
+                    <ul className="mt-2">
+                      <li><strong>TPTC</strong>: Tasa de docentes con dedicación a tiempo completo.</li>
+                      <li><strong>PTC</strong>: Total de docentes a tiempo completo.</li>
+                      <li><strong>TP</strong>: Total de docentes vinculados en el periodo.</li>
+                    </ul>
+                  </div>
+                  <div className="flex-fill ps-3">
+                    <strong>Tasa de personal académico titular (permanente)</strong>
+                    <br />
+                    <span>TPP = 100 × (PP / TPA)</span>
+                    <br />
+                    <strong>Donde:</strong>
+                    <ul className="mt-2">
+                      <li><strong>TPP</strong>: Tasa de permanencia del personal académico titular.</li>
+                      <li><strong>PP</strong>: Total de docentes titulares permanentes durante el periodo.</li>
+                      <li><strong>TPA</strong>: Total de docentes que dictaron clases en el periodo.</li>
+                    </ul>
+                  </div>
+                </div>
+              </CCardText> 
+            </CCollapse>
           </div>
 
           <CCollapse visible={visible} className="mt-3">
+            <hr className="mb-4" />
             <CRow>
               <CCol>
                 <CCardText style={{ fontSize: '0.9rem' }}>

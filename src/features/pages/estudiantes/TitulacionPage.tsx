@@ -6,13 +6,13 @@ import {
   CCol,
   CButton,
   CCollapse,
-  CPopover,
   CAlert,
 } from '@coreui/react';
 import { useState } from 'react';
 
 const TitulacionPage = () => {
   const [visible, setVisible] = useState(false);
+  const [showFormula, setShowFormula] = useState(false);
   const [faq1, setFaq1] = useState(false);
   const [faq2, setFaq2] = useState(false);
 
@@ -39,21 +39,34 @@ const TitulacionPage = () => {
               Más información
             </CButton>
 
-            <CPopover
-              content={
-                <div>
-                  <strong>Fórmula:</strong><br />
-                  (N° de estudiantes titulados / N° estudiantes cohorte) × 100
-                </div>
-              }
-              placement="right"
-              trigger={['hover', 'focus']}
+             <CButton
+              color="info"
+              variant="outline"
+              onClick={() => setShowFormula(!showFormula)}
             >
-              <CButton color="info" variant="outline">Ver fórmula</CButton>
-            </CPopover>
+              {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
+            </CButton>
+            <CCollapse visible={showFormula} className="mt-3">
+              <CCardText className="p-3">
+                <strong>Fórmula:</strong>
+                <br />
+                <div style={{ fontSize: '0.9rem' }}>
+                  {`TTI = 100 × (1 / n) × Σ (NEGTᵢ / TEGᵢ)`}
+                  <br />
+                  <strong>Donde:</strong>
+                  <ul>
+                    <li><strong>TTI</strong>: Tasa promedio de titulación institucional.</li>
+                    <li><strong>n</strong>: Número de cohortes del periodo evaluado.</li>
+                    <li><strong>NEGTᵢ</strong>: Estudiantes que se titularon en tiempo + 1 periodo de gracia en la <i>i-ésima</i> cohorte.</li>
+                    <li><strong>TEGᵢ</strong>: Total de estudiantes admitidos en la <i>i-ésima</i> cohorte.</li>
+                  </ul>
+                </div>
+              </CCardText>
+            </CCollapse>
           </div>
 
           <CCollapse visible={visible} className="mt-3">
+            <hr className="mb-4" />
             <CRow>
               <CCol>
                 <CCardText style={{ fontSize: '0.9rem' }}>

@@ -6,13 +6,13 @@ import {
   CCol,
   CButton,
   CCollapse,
-  CPopover,
   CAlert,
 } from '@coreui/react'
 import { useState } from 'react'
 
 const AmbientesPage = () => {
   const [visible, setVisible] = useState(false)
+  const [showFormula, setShowFormula] = useState(false)
   const [faq1, setFaq1] = useState(false)
   const [faq2, setFaq2] = useState(false)
 
@@ -44,31 +44,35 @@ const AmbientesPage = () => {
               Más información
             </CButton>
 
-            <CPopover
-              content={
-                <div style={{ maxWidth: 300 }}>
-                  <strong>Fórmula:</strong>
-                  <br />
-                  <div style={{ fontSize: '0.85rem' }}>
-                    AP = (1 / NAP) × Σ (FUNᵢ + EQIᵢ + DISᵢ + ACCᵢ)
-                    <br />
-                    FUN: Funcionalidad <br />
-                    EQI: Equipamiento <br />
-                    DIS: Disponibilidad <br />
-                    ACC: Accesibilidad
-                  </div>
-                </div>
-              }
-              placement="right"
-              trigger={['hover', 'focus']}
+            <CButton
+              color="info"
+              variant="outline"
+              onClick={() => setShowFormula(!showFormula)}
             >
-              <CButton color="info" variant="outline">
-                Ver fórmula
-              </CButton>
-            </CPopover>
+              {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
+            </CButton>
+            <CCollapse visible={showFormula} className="mt-3">
+              <CCardText className="p-3">
+                <strong>Fórmula:</strong>
+                <br />
+                <div style={{ fontSize: '0.9rem' }}>
+                  {`AP = (1 / NAP) * Σ [FUNᵢ + EQIᵢ + DISᵢ + ACCᵢ]`}<br />
+                  <strong>Donde:</strong>
+                  <ul>
+                    <li><strong>AP</strong>: Ambientes de aprendizaje que utiliza la carrera.</li>
+                    <li><strong>NAP</strong>: Número de ambientes de aprendizaje.</li>
+                    <li><strong>FUNᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>funcionalidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                    <li><strong>EQIᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre el <em>equipamiento</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                    <li><strong>DISᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>disponibilidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                    <li><strong>ACCᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>accesibilidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                  </ul>
+                </div>
+              </CCardText> 
+            </CCollapse>
           </div>
 
           <CCollapse visible={visible} className="mt-3">
+            <hr className="mb-4" />
             <CRow>
               <CCol>
                 <CCardText style={{ fontSize: '0.9rem' }}>
@@ -78,7 +82,7 @@ const AmbientesPage = () => {
             </CRow>
 
             <hr className="mb-4" />
-            
+
             {/* Estándares clave */}
             <CRow className="mb-5">
               <CCol md={4}>

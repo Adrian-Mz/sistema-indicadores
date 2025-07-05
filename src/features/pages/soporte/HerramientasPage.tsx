@@ -6,13 +6,13 @@ import {
   CCol,
   CButton,
   CCollapse,
-  CPopover,
   CAlert,
 } from '@coreui/react'
 import { useState } from 'react'
 
 const HerramientasPage = () => {
   const [visible, setVisible] = useState(false)
+  const [showFormula, setShowFormula] = useState(false);
   const [faq1, setFaq1] = useState(false)
   const [faq2, setFaq2] = useState(false)
 
@@ -44,32 +44,35 @@ const HerramientasPage = () => {
               Más información
             </CButton>
 
-            <CPopover
-              content={
-                <div style={{ maxWidth: 300 }}>
-                  <strong>Fórmula:</strong>
-                  <br />
-                  <div style={{ fontSize: '0.85rem' }}>
-                    {`HEP = (1 / NHP) * Σ [α₁×FHPᵢ + α₂×DHPᵢ + α₃×AHPᵢ]`}<br />
-                    Donde:
-                    <br />
-                    FHPᵢ: Funcionalidad <br />
-                    DHPᵢ: Disponibilidad <br />
-                    AHPᵢ: Accesibilidad <br />
-                    αⱼ: Peso asignado por componente
-                  </div>
-                </div>
-              }
-              placement="right"
-              trigger={['hover', 'focus']}
+            <CButton
+              color="info"
+              variant="outline"
+              onClick={() => setShowFormula(!showFormula)}
             >
-              <CButton color="info" variant="outline">
-                Ver fórmula
-              </CButton>
-            </CPopover>
+              {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
+            </CButton>
+            <CCollapse visible={showFormula} className="mt-3">
+              <CCardText className="p-3">
+                <strong>Fórmula:</strong>
+                <br />
+                <div style={{ fontSize: '0.9rem' }}>
+                  {`HEP = (1 / NHP) * Σ [α₁×FHPᵢ + α₂×DHPᵢ + α₃×AHPᵢ]`}<br />
+                  <strong>Donde:</strong><br />
+                  <ul className="mb-0">
+                    <li><strong>HEP</strong>: Herramientas pedagógicas con condiciones de funcionalidad,disponibilidad y accesibilidad</li>
+                    <li><strong>NHP</strong>: Número de herramientas pedagógicas</li>
+                    <li><strong>FHPᵢ</strong>: Funcionalidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramienta pedagógica</li>
+                    <li><strong>DHPᵢ</strong>: Disponibilidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramienta pedagógica.</li>
+                    <li><strong>AHPᵢ</strong>: Accesibilidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramientapedagógica.</li>
+                    <li><strong>αⱼ</strong>: Peso asignado conforme al modelo específico por campo de conocimiento</li>
+                  </ul>
+                </div>
+              </CCardText>
+            </CCollapse>
           </div>
 
           <CCollapse visible={visible} className="mt-3">
+            <hr className="mb-4" />
             <CRow>
               <CCol>
                 <CCardText style={{ fontSize: '0.9rem' }}>

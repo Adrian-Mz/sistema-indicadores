@@ -7,12 +7,12 @@ import {
   CButton,
   CAlert,
   CCollapse,
-  CPopover
 } from '@coreui/react';
 import { useState } from 'react';
 
 const DesercionPage = () => {
   const [visible, setVisible] = useState(false);
+  const [showFormula, setShowFormula] = useState(false);
   const [faq1, setFaq1] = useState(false);
   const [faq2, setFaq2] = useState(false);
 
@@ -43,27 +43,38 @@ const DesercionPage = () => {
             <CButton color="secondary" variant="outline" onClick={() => setVisible(!visible)}>
               Más información
             </CButton>
-
-            <CPopover
-              content={
-                <div>
-                  <strong>Fórmula: Tasa de Deserción</strong><br />
-                  ((N° estudiantes cohorte - N° estudiantes matriculados en 2° año) / N° estudiantes cohorte) × 100
-
-                  <hr className="mb-4" />
-
-                  <strong>Fórmula: Tasa de Retención</strong><br />
-                  (N° estudiantes matriculados en 2° año / N° estudiantes cohorte) × 100
-                </div>
-              }
-              placement="right"
-              trigger={['hover', 'focus']}
+            <CButton
+              color="info"
+              variant="outline"
+              onClick={() => setShowFormula(!showFormula)}
             >
-              <CButton color="info" variant="outline">Ver fórmulas</CButton>
-            </CPopover>
-            
+              {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
+            </CButton>
+            <CCollapse visible={showFormula} className="mt-3">
+              <CCardText className="p-3">
+                <strong>Fórmula:</strong>
+                <br />
+                <div style={{ fontSize: '0.9rem' }}>
+                  {`TDIₓ = (1 / n) × Σ (NEGₐᵢ₊ₓ / NEGₐᵢ) × 100`}
+                  <br />
+                  {`TRIₓ = 100 − TDIₓ`}
+                  <br />
+                  <strong>Donde:</strong>
+                  <ul>
+                    <li><strong>TDIₓ</strong>: Tasa de deserción institucional.</li>
+                    <li><strong>n</strong>: Número de cohortes en el periodo de evaluación.</li>
+                    <li><strong>Aᵢ</strong>: Cohorte <i>i-ésima</i> (inicio en primer nivel).</li>
+                    <li><strong>Aᵢ + x</strong>: Periodo(s) posteriores respecto al inicio de Aᵢ.</li>
+                    <li><strong>NEGₐᵢ₊ₓ</strong>: Estudiantes de Aᵢ que no continuaron en el periodo Aᵢ + x.</li>
+                    <li><strong>NEGₐᵢ</strong>: Estudiantes que iniciaron en la cohorte Aᵢ.</li>
+                    <li><strong>TRIₓ</strong>: Tasa de retención institucional.</li>
+                  </ul>
+                </div>
+              </CCardText>
+            </CCollapse>
           </div>
           <CCollapse visible={visible} className="mt-3">
+            <hr className="mb-4" />
               <CRow>
                 <CCol>
                   <CCardText style={{ fontSize: '0.9rem' }}>
