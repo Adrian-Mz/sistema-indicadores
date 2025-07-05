@@ -51,12 +51,12 @@ const AppSidebar = () => {
             alt="Logo ESPOCH"
             style={{ height: "45px", width: "auto" }}
           />
-          <span className="ms-2 text-black">ESPOCH ANALYTICS</span>
+          <strong className="ms-2 text-black">ESPOCH ANALYTICS</strong>
         </CSidebarBrand>
       </CSidebarHeader>
       <CSidebarNav >
         <CNavItem>
-          <NavLink to="/dashboard" className="nav-link">
+          <NavLink to="/dashboard" className="nav-link bg-transparent">
             <CIcon icon={cilHome} className="me-2" />
             Inicio
           </NavLink>
@@ -87,7 +87,7 @@ const AppSidebar = () => {
       </CSidebarNav>
       <CSidebarFooter className="border-top">
         <div className="sidebar-footer-content">
-          <span>© 2025 ESPOCH</span>
+          <strong>© 2025 ESPOCH</strong>
         </div>
       </CSidebarFooter>
     </CSidebar>
