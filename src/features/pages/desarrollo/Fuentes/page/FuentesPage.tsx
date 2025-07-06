@@ -9,7 +9,15 @@ import {
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilCloudDownload, cilGraph } from "@coreui/icons";
+
 import FuenteTitulacion from "../components/FuenteTitulacion";
+import FuenteRetencion from "../components/FuenteRetencion";
+
+// Diccionario de componentes disponibles
+const componentesFuentes: Record<string, React.FC> = {
+  "Titulación": FuenteTitulacion,
+  "Deserción y Retención": FuenteRetencion,
+};
 
 const fuentes = [
   {
@@ -24,13 +32,13 @@ const fuentes = [
     descripcion:
       "Datos relacionados a la permanencia, abandono y retención estudiantil.",
     indicador: "Deserción y Retención",
-    disponible: false,
+    disponible: true,
   },
   {
     nombre: "Fuente Personal Académico",
     descripcion:
       "Datos relacionados con la calidad, estabilidad y dedicación del personal académico.",
-    indicador: "Afinidad del Personal",
+    indicador: "Personal Académico",
     disponible: false,
   },
   {
@@ -59,10 +67,12 @@ const FuentesPage = () => {
 
       <div className="mt-4">
         {fuentes.map((fuente, index) => {
-          if (fuente.indicador === "Titulación") {
+          const ComponenteFuente = componentesFuentes[fuente.indicador];
+
+          if (ComponenteFuente && fuente.disponible) {
             return (
               <div key={index} className="mb-5">
-                <FuenteTitulacion />
+                <ComponenteFuente />
               </div>
             );
           }
