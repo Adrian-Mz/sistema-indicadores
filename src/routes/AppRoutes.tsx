@@ -5,7 +5,7 @@ import TitulacionPage from "../features/pages/estudiantes/TitulacionPage";
 import DesercionPage from "../features/pages/estudiantes/DesercionPage";
 import HerramientasPage from "../features/pages/soporte/HerramientasPage";
 import AmbientesPage from "../features/pages/soporte/AmbientesPage";
-import FuentesPage from "../features/pages/desarrollo/FuentesPage";
+import FuentesPage from "../features/pages/desarrollo/Fuentes/page/FuentesPage";
 import NosotrosPage from "../features/pages/desarrollo/NosotrosPage";
 import PoliticasPage from "../features/pages/desarrollo/PoliticasPage";
 import AdminDashboardPage from "../features/users/admin/page/AdminDashboardPage";
