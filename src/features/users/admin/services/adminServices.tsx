@@ -10,6 +10,30 @@ export type User = {
   role: "user" | "admin";
 };
 
+export type Auditoria = {
+  id: string;
+  usuario_id: string;
+  correo: string;
+  accion: string;
+  modulo: string;
+  descripcion: string;
+  fecha: string;
+};
+
+export const getAuditoriaLogs = async (): Promise<Auditoria[]> => {
+  const { data, error } = await supabase
+    .from("auditoria")
+    .select("*")
+    .order("fecha", { ascending: false });
+
+  if (error) {
+    console.error("Error al obtener logs de auditoría:", error.message);
+    return [];
+  }
+
+  return data ?? [];
+};
+
 // Obtener todos los perfiles
 export const getAllProfiles = async (): Promise<User[]> => {
   const { data, error } = await supabase.from("profiles").select("*");
@@ -136,3 +160,4 @@ export const createUserWithAuthAndProfile = async ({
 
   return true;
 };
+

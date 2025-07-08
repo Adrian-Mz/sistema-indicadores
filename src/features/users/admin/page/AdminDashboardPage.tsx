@@ -6,12 +6,20 @@
     CCardHeader, 
     CButton, 
     CAlert,
+    CTabs, 
+    CTabList, 
+    CTab, 
+    CTabContent, 
+    CTabPanel
   } from "@coreui/react";
   import { UserFormModal } from "../components/UserFormModal";
   import { ConfirmDeleteModal } from "../components/ConfirmModalDelete";
   import UserList from "../components/UserList";
   import type { User } from "../services/adminServices";
   import { registrarAuditoria } from "../../../../utils/auditoriaServices";
+  import AuditLogList from "../components/AuditLogList";
+  import AdminProfileCard from "../components/AdminProfileCard";
+  import { getAuditoriaLogs, Auditoria } from "../services/adminServices";
 
   const AdminDashboardPage = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -21,6 +29,13 @@
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [logs, setLogs] = useState<Auditoria[]>([]);
+
+  const fetchLogs = async () => {
+    const result = await getAuditoriaLogs();
+    setLogs(result || []);
+  };
 
   const fetchUsers = async () => {
     setLoading(true);
@@ -93,6 +108,7 @@
 
   useEffect(() => {
     fetchUsers();
+    fetchLogs();
   }, []);
 
   return (
@@ -108,34 +124,64 @@
         </CAlert>
       )}
 
-      <CCard>
-        <CCardHeader className="flex justify-between items-center">
-          <h4 className="text-lg font-semibold">Gestión de Usuarios</h4>
-          <CButton onClick={() => {
-            setSelectedUser(null);
-            setModalVisible(true);
-          }}>
-            Crear Usuario
-          </CButton>
-        </CCardHeader>
-        <CCardBody>
-          {loading ? (
-            <p>Cargando usuarios...</p>
-          ) : (
-            <UserList
-              users={users}
-              onEdit={(user) => {
-                setSelectedUser(user);
-                setModalVisible(true);
-              }}
-              onDelete={(user) => {
-                setSelectedUser(user);
-                setDeleteVisible(true);
-              }}
-            />
-          )}
-        </CCardBody>
-      </CCard>
+      <CTabs defaultActiveItemKey={1}>
+        <CTabList variant="underline">
+          <CTab itemKey={1}>Perfil</CTab>
+          <CTab itemKey={2}>Usuarios</CTab>
+          <CTab itemKey={3}>Auditoría</CTab>
+        </CTabList>
+        <CTabContent>
+          <CTabPanel itemKey={1}>
+            <CCard>
+              <CCardHeader className="flex justify-between items-center">
+                <h4 className="text-lg font-semibold">Mi Perfil</h4>
+              </CCardHeader>
+              <CCardBody>
+                <AdminProfileCard />
+              </CCardBody>
+            </CCard>
+          </CTabPanel>
+          <CTabPanel itemKey={2}>
+            <CCard>
+              <CCardHeader className="flex justify-between items-center">
+                <h4 className="text-lg font-semibold">Gestión de Usuarios</h4>
+                <CButton onClick={() => {
+                  setSelectedUser(null);
+                  setModalVisible(true);
+                }}>
+                  Crear Usuario
+                </CButton>
+              </CCardHeader>
+              <CCardBody>
+                {loading ? (
+                  <p>Cargando usuarios...</p>
+                ) : (
+                  <UserList
+                    users={users}
+                    onEdit={(user) => {
+                      setSelectedUser(user);
+                      setModalVisible(true);
+                    }}
+                    onDelete={(user) => {
+                      setSelectedUser(user);
+                      setDeleteVisible(true);
+                    }}
+                  />
+                )}
+              </CCardBody>
+            </CCard>
+          </CTabPanel>
+
+          <CTabPanel itemKey={3}>
+            <CCard>
+              <CCardHeader><h5>Registros de Auditoría</h5></CCardHeader>
+              <CCardBody>
+                <AuditLogList logs={logs} />
+              </CCardBody>
+            </CCard>
+          </CTabPanel>
+        </CTabContent>
+      </CTabs>
 
       <UserFormModal
         visible={modalVisible}
@@ -153,6 +199,7 @@
           setSelectedUser(null);
         }}
       />
+
     </div>
   );
 };
