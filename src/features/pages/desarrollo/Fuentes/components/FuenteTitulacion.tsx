@@ -7,6 +7,7 @@ import CIcon from '@coreui/icons-react';
 import { cilCloudDownload, cilFilter } from '@coreui/icons';
 import Papa from 'papaparse';
 import { saveAs } from 'file-saver';
+import { registrarAuditoria } from '../../../../../utils/auditoriaServices';
 
 type FilaTitulacion = {
   nombre_facultad: string;
@@ -72,10 +73,16 @@ const FuenteTitulacion = () => {
   setTimeout(() => setAlertVisible(false), 3000);
   };
 
-  const descargarCSV = () => {
+  const descargarCSV = async () => {
     const csv = Papa.unparse(filtered);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     saveAs(blob, 'titulacion.csv');
+
+    await registrarAuditoria({
+      accion: "descarga_fuente",
+      modulo: "titulacion",
+      descripcion: "El usuario descargó los datos de titulación en CSV",
+    });
   };
 
   return (

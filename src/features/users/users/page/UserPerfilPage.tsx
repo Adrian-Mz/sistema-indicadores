@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../../../utils/supabaseClient";
+import { registrarAuditoria } from "../../../../utils/auditoriaServices";
 import {
   CCard,
   CCardBody,
@@ -64,6 +65,12 @@ const UserPerfilPage = () => {
       setNewPassword("");
       setConfirmPassword("");
       setCollapseVisible(false);
+
+      await registrarAuditoria({
+        accion: "cambio_clave",
+        modulo: "perfil",
+        descripcion: "El usuario actualizó su contraseña desde el perfil.",
+      });
     }
   };
 

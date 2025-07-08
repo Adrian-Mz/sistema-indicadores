@@ -8,6 +8,7 @@ import {
 } from "@coreui/react";
 import { Eye, EyeOff } from "lucide-react"; // ✅ íconos de ojo
 import { login } from "../services/authService";
+import { registrarAuditoria } from "../../../utils/auditoriaServices";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,6 +44,13 @@ const LoginForm = () => {
       console.log("Intentando login...");
       const data = await login(email, password);
       console.log("Login exitoso:", data);
+
+      await registrarAuditoria({
+        accion: "login",
+        modulo: "auth",
+        descripcion: email,
+      });
+      
       navigate("/dashboard");
     } catch (e) {
       console.error("Error en login:", e);

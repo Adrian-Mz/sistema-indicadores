@@ -6,6 +6,7 @@ import CIcon from '@coreui/icons-react';
 import { cilCloudDownload, cilFilter } from '@coreui/icons';
 import Papa from 'papaparse';
 import { saveAs } from 'file-saver';
+import { registrarAuditoria } from '../../../../../utils/auditoriaServices';
 
 type FilaRetencion = {
   nombre_facultad: string;
@@ -70,10 +71,16 @@ const FuenteRetencion = () => {
     setFiltered(filtrado);
   };
 
-  const descargarCSV = () => {
+  const descargarCSV = async () => {
     const csv = Papa.unparse(filtered);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     saveAs(blob, 'retencion_desercion.csv');
+
+      await registrarAuditoria({
+      accion: "descarga_fuente",
+      modulo: "retencion_desercion",
+      descripcion: "El usuario descargó los datos de deserción y retención en CSV",
+    });
   };
 
   return (

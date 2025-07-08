@@ -11,6 +11,7 @@
   import { ConfirmDeleteModal } from "../components/ConfirmModalDelete";
   import UserList from "../components/UserList";
   import type { User } from "../services/adminServices";
+  import { registrarAuditoria } from "../../../../utils/auditoriaServices";
 
   const AdminDashboardPage = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -34,10 +35,22 @@
       if (!user.id) {
         await createUserWithAuthAndProfile(user);
         setSuccessMessage("Usuario creado correctamente.");
+
+        await registrarAuditoria({
+          accion: "crear_usuario",
+          modulo: "admin",
+          descripcion: "El usuario " + user.email + " ha sido creado por el administrador",
+        });
       } else {
         const data = await upsertProfile(user);
         console.log("Guardado:", data); // 👈 Debe mostrar el array actualizado
         setSuccessMessage("Usuario actualizado correctamente.");
+
+        await registrarAuditoria({
+          accion: "actualizar_usuario",
+          modulo: "admin",
+          descripcion: "El usuario " + user.email + " ha sido actualizado por el administrador",
+        });
       }
       await fetchUsers(); // asegúrate que refresque
       setModalVisible(false);
@@ -60,6 +73,12 @@
         setErrorMessage("No se pudo eliminar el usuario.");
         return;
       }
+      
+      await registrarAuditoria({
+        accion: "eliminar_usuario",
+        modulo: "admin",
+        descripcion: `Se eliminó el usuario ${selectedUser.email}`,
+      });
 
       setSuccessMessage("Usuario eliminado correctamente.");
       fetchUsers();
