@@ -52,7 +52,7 @@ export const AppHeader = () => {
                     navigate(profile?.role === "admin" ? "/dashboard/admin" : "/dashboard/perfil")
                   }
                 >
-                  Perfil
+                  Configuración
                 </CDropdownItem>
                 <CDropdownDivider />
                 <CDropdownItem onClick={handleLogout}>Cerrar sesión</CDropdownItem>
