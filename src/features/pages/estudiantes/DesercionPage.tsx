@@ -50,7 +50,8 @@ const DesercionPage = () => {
             >
               {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
             </CButton>
-            <CCollapse visible={showFormula} className="mt-3">
+          </div>
+          <CCollapse visible={showFormula} className="mt-3">
               <CCardText className="p-3">
                 <strong>Fórmula:</strong>
                 <br />
@@ -72,7 +73,7 @@ const DesercionPage = () => {
                 </div>
               </CCardText>
             </CCollapse>
-          </div>
+
           <CCollapse visible={visible} className="mt-3">
             <hr className="mb-4" />
               <CRow>

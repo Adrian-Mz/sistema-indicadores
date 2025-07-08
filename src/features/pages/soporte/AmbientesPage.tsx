@@ -51,25 +51,26 @@ const AmbientesPage = () => {
             >
               {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
             </CButton>
-            <CCollapse visible={showFormula} className="mt-3">
-              <CCardText className="p-3">
-                <strong>Fórmula:</strong>
-                <br />
-                <div style={{ fontSize: '0.9rem' }}>
-                  {`AP = (1 / NAP) * Σ [FUNᵢ + EQIᵢ + DISᵢ + ACCᵢ]`}<br />
-                  <strong>Donde:</strong>
-                  <ul>
-                    <li><strong>AP</strong>: Ambientes de aprendizaje que utiliza la carrera.</li>
-                    <li><strong>NAP</strong>: Número de ambientes de aprendizaje.</li>
-                    <li><strong>FUNᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>funcionalidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
-                    <li><strong>EQIᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre el <em>equipamiento</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
-                    <li><strong>DISᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>disponibilidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
-                    <li><strong>ACCᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>accesibilidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
-                  </ul>
-                </div>
-              </CCardText> 
-            </CCollapse>
           </div>
+
+          <CCollapse visible={showFormula} className="mt-3">
+            <CCardText className="p-3">
+              <strong>Fórmula:</strong>
+              <br />
+              <div style={{ fontSize: '0.9rem' }}>
+                {`AP = (1 / NAP) * Σ [FUNᵢ + EQIᵢ + DISᵢ + ACCᵢ]`}<br />
+                <strong>Donde:</strong>
+                <ul>
+                  <li><strong>AP</strong>: Ambientes de aprendizaje que utiliza la carrera.</li>
+                  <li><strong>NAP</strong>: Número de ambientes de aprendizaje.</li>
+                  <li><strong>FUNᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>funcionalidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                  <li><strong>EQIᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre el <em>equipamiento</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                  <li><strong>DISᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>disponibilidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                  <li><strong>ACCᵢ</strong>: Valoración obtenida en una escala de [0,1] sobre la <em>accesibilidad</em> del <em>i–ésimo</em> ambiente de aprendizaje.</li>
+                </ul>
+              </div>
+            </CCardText> 
+          </CCollapse>
 
           <CCollapse visible={visible} className="mt-3">
             <hr className="mb-4" />

@@ -54,49 +54,50 @@ const DocenciaPage = () => {
             >
               {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
             </CButton>
-            <CCollapse visible={showFormula} className="mt-3">
-              <CCardText className="p-3">
-                <div className="d-flex justify-content-between gap-4" style={{ fontSize: '0.9rem' }}>
-                  <div className="flex-fill pe-3 border-end">
-                    <strong>Tasa de personal académico con formación doctoral</strong>
-                    <br />
-                    <span>TPAFD = 100 × (TPhD / TP)</span>
-                    <br />
-                    <strong>Donde:</strong>
-                    <ul className="mt-2">
-                      <li><strong>TPAFD</strong>: Tasa de personal académico con formación doctoral.</li>
-                      <li><strong>TPhD</strong>: Total de docentes con formación doctoral.</li>
-                      <li><strong>TP</strong>: Total de docentes vinculados en el periodo.</li>
-                    </ul>
-                  </div>
-                  <div className="flex-fill px-3 border-end">
-                    <strong>Tasa de personal académico con dedicación a tiempo completo</strong>
-                    <br />
-                    <span>TPTC = 100 × (PTC / TP)</span>
-                    <br />
-                    <strong>Donde:</strong>
-                    <ul className="mt-2">
-                      <li><strong>TPTC</strong>: Tasa de docentes con dedicación a tiempo completo.</li>
-                      <li><strong>PTC</strong>: Total de docentes a tiempo completo.</li>
-                      <li><strong>TP</strong>: Total de docentes vinculados en el periodo.</li>
-                    </ul>
-                  </div>
-                  <div className="flex-fill ps-3">
-                    <strong>Tasa de personal académico titular (permanente)</strong>
-                    <br />
-                    <span>TPP = 100 × (PP / TPA)</span>
-                    <br />
-                    <strong>Donde:</strong>
-                    <ul className="mt-2">
-                      <li><strong>TPP</strong>: Tasa de permanencia del personal académico titular.</li>
-                      <li><strong>PP</strong>: Total de docentes titulares permanentes durante el periodo.</li>
-                      <li><strong>TPA</strong>: Total de docentes que dictaron clases en el periodo.</li>
-                    </ul>
-                  </div>
-                </div>
-              </CCardText> 
-            </CCollapse>
           </div>
+
+          <CCollapse visible={showFormula} className="mt-3">
+            <CCardText className="p-3">
+              <div className="d-flex justify-content-between gap-4" style={{ fontSize: '0.9rem' }}>
+                <div className="flex-fill pe-3 border-end">
+                  <strong>Tasa de personal académico con formación doctoral</strong>
+                  <br />
+                  <span>TPAFD = 100 × (TPhD / TP)</span>
+                  <br />
+                  <strong>Donde:</strong>
+                  <ul className="mt-2">
+                    <li><strong>TPAFD</strong>: Tasa de personal académico con formación doctoral.</li>
+                    <li><strong>TPhD</strong>: Total de docentes con formación doctoral.</li>
+                    <li><strong>TP</strong>: Total de docentes vinculados en el periodo.</li>
+                  </ul>
+                </div>
+                <div className="flex-fill px-3 border-end">
+                  <strong>Tasa de personal académico con dedicación a tiempo completo</strong>
+                  <br />
+                  <span>TPTC = 100 × (PTC / TP)</span>
+                  <br />
+                  <strong>Donde:</strong>
+                  <ul className="mt-2">
+                    <li><strong>TPTC</strong>: Tasa de docentes con dedicación a tiempo completo.</li>
+                    <li><strong>PTC</strong>: Total de docentes a tiempo completo.</li>
+                    <li><strong>TP</strong>: Total de docentes vinculados en el periodo.</li>
+                  </ul>
+                </div>
+                <div className="flex-fill ps-3">
+                  <strong>Tasa de personal académico titular (permanente)</strong>
+                  <br />
+                  <span>TPP = 100 × (PP / TPA)</span>
+                  <br />
+                  <strong>Donde:</strong>
+                  <ul className="mt-2">
+                    <li><strong>TPP</strong>: Tasa de permanencia del personal académico titular.</li>
+                    <li><strong>PP</strong>: Total de docentes titulares permanentes durante el periodo.</li>
+                    <li><strong>TPA</strong>: Total de docentes que dictaron clases en el periodo.</li>
+                  </ul>
+                </div>
+              </div>
+            </CCardText> 
+          </CCollapse>
 
           <CCollapse visible={visible} className="mt-3">
             <hr className="mb-4" />

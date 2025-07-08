@@ -51,25 +51,26 @@ const HerramientasPage = () => {
             >
               {showFormula ? "Ocultar fórmula" : "Ver fórmula"}
             </CButton>
-            <CCollapse visible={showFormula} className="mt-3">
-              <CCardText className="p-3">
-                <strong>Fórmula:</strong>
-                <br />
-                <div style={{ fontSize: '0.9rem' }}>
-                  {`HEP = (1 / NHP) * Σ [α₁×FHPᵢ + α₂×DHPᵢ + α₃×AHPᵢ]`}<br />
-                  <strong>Donde:</strong><br />
-                  <ul className="mb-0">
-                    <li><strong>HEP</strong>: Herramientas pedagógicas con condiciones de funcionalidad,disponibilidad y accesibilidad</li>
-                    <li><strong>NHP</strong>: Número de herramientas pedagógicas</li>
-                    <li><strong>FHPᵢ</strong>: Funcionalidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramienta pedagógica</li>
-                    <li><strong>DHPᵢ</strong>: Disponibilidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramienta pedagógica.</li>
-                    <li><strong>AHPᵢ</strong>: Accesibilidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramientapedagógica.</li>
-                    <li><strong>αⱼ</strong>: Peso asignado conforme al modelo específico por campo de conocimiento</li>
-                  </ul>
-                </div>
-              </CCardText>
-            </CCollapse>
           </div>
+
+          <CCollapse visible={showFormula} className="mt-3">
+            <CCardText className="p-3">
+              <strong>Fórmula:</strong>
+              <br />
+              <div style={{ fontSize: '0.9rem' }}>
+                {`HEP = (1 / NHP) * Σ [α₁×FHPᵢ + α₂×DHPᵢ + α₃×AHPᵢ]`}<br />
+                <strong>Donde:</strong><br />
+                <ul className="mb-0">
+                  <li><strong>HEP</strong>: Herramientas pedagógicas con condiciones de funcionalidad,disponibilidad y accesibilidad</li>
+                  <li><strong>NHP</strong>: Número de herramientas pedagógicas</li>
+                  <li><strong>FHPᵢ</strong>: Funcionalidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramienta pedagógica</li>
+                  <li><strong>DHPᵢ</strong>: Disponibilidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramienta pedagógica.</li>
+                  <li><strong>AHPᵢ</strong>: Accesibilidad valorada en una escala entre [0, 1] de la 𝑖 − é𝑠𝑖𝑚𝑎 herramientapedagógica.</li>
+                  <li><strong>αⱼ</strong>: Peso asignado conforme al modelo específico por campo de conocimiento</li>
+                </ul>
+              </div>
+            </CCardText>
+          </CCollapse>
 
           <CCollapse visible={visible} className="mt-3">
             <hr className="mb-4" />
