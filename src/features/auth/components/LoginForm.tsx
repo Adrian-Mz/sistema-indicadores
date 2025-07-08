@@ -101,7 +101,7 @@ const LoginForm = () => {
       {error && <p className="text-sm text-red-500 text-center">{error}</p>}
 
       <div className="flex justify-between items-center text-sm">
-        <Link to="/reset-password" className="text-blue-500 hover:underline">
+        <Link to="/recover-password" className="text-blue-500 hover:underline">
           ¿Olvidaste tu contraseña?
         </Link>
       </div>

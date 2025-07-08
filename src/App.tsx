@@ -4,6 +4,8 @@ import LoginPage from "./features/auth/page/LoginPage";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import DashboardLayout from "./layouts/AppLayout";
 import { routes } from "./routes/AppRoutes";
+import { RecoverPasswordForm } from "./features/auth/components/RecoverPasswordForm";
+import ResetPasswordPage from "./features/auth/page/ResetPasswordPage";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <SidebarProvider>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/recover-password" element={<RecoverPasswordForm />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route
             path="/dashboard"
             element={
