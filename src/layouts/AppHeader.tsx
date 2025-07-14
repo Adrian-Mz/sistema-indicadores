@@ -31,41 +31,44 @@ export const AppHeader = () => {
     navigate("/");
   };
 
+
+
   return (
-    <CNavbar expand="lg" className="bg-red-700 border-b border-gray-300 shadow-sm">
-      <CContainer fluid className="p-2">
-        <CNavbarBrand href="/dashboard" className="text-white">
-          Sistema Indicadores
-        </CNavbarBrand>
-        <CNavbarToggler onClick={() => setVisible(!visible)} />
-        <CCollapse className="navbar-collapse" visible={visible}>
-          <CNavbarNav className="me-auto" />
-          {session?.user ? (
-            <CDropdown alignment="end" dark>
-              <CDropdownToggle className="text-white">
-                <CIcon icon={cilUser} className="me-2" />
-                {session.user.user_metadata.name || session.user.email}
-              </CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem
-                  onClick={() =>
-                    navigate(profile?.role === "admin" ? "/dashboard/admin" : "/dashboard/perfil")
-                  }
-                >
-                  Configuración
-                </CDropdownItem>
-                <CDropdownDivider />
-                <CDropdownItem onClick={handleLogout}>Cerrar sesión</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
-          ) : (
-            <CButton color="primary" onClick={() => navigate("/")}>
-              Iniciar sesión
-            </CButton>
-          )}
-        </CCollapse>
-      </CContainer>
-    </CNavbar>
+
+      <CNavbar expand="lg" className="bg-red-700 border-b border-gray-300 shadow-sm">
+        <CContainer fluid className="p-2">
+          <CNavbarBrand href="/dashboard" className="text-white ml-2">
+             Sistema Indicadores
+          </CNavbarBrand>
+          <CNavbarToggler onClick={() => setVisible(!visible)} />
+          <CCollapse className="navbar-collapse" visible={visible}>
+            <CNavbarNav className="me-auto" />
+            {session?.user ? (
+              <CDropdown alignment="end" dark>
+                <CDropdownToggle className="text-white">
+                  <CIcon icon={cilUser} className="me-2" />
+                  {session.user.user_metadata.name || session.user.email}
+                </CDropdownToggle>
+                <CDropdownMenu>
+                  <CDropdownItem
+                    onClick={() =>
+                      navigate(profile?.role === "admin" ? "/dashboard/admin" : "/dashboard/perfil")
+                    }
+                  >
+                    Configuración
+                  </CDropdownItem>
+                  <CDropdownDivider />
+                  <CDropdownItem onClick={handleLogout}>Cerrar sesión</CDropdownItem>
+                </CDropdownMenu>
+              </CDropdown>
+            ) : (
+              <CButton color="primary" onClick={() => navigate("/")}>
+                Iniciar sesión
+              </CButton>
+            )}
+          </CCollapse>
+        </CContainer>
+      </CNavbar>
   );
 };
 

@@ -1,14 +1,23 @@
 import { Outlet } from "react-router-dom";
 import AppSidebar from "./AppSidebar";
 import AppHeader from "./AppHeader";
-import Backdrop from "./Backdrop";
+import { useSidebar } from "../context/SidebarContext";
 
 const LayoutContent = () => {
+
+  const { sidebarUnfoldable } = useSidebar();
+  const sidebarWidth = sidebarUnfoldable ? 272 : 62;
+
   return (
-    <div className="d-flex min-vh-100">
+    <div className="min-vh-100">
       <AppSidebar />
-      <Backdrop />
-      <div className="flex-grow-1 d-flex flex-column">
+      <div
+        className="wrapper"
+        style={{
+          marginLeft: `${sidebarWidth}px`,
+          transition: "margin-left 0.3s ease",
+        }}
+      >
         <AppHeader />
         <main
           className="flex-grow-1 overflow-auto bg-gray-100 p-4"

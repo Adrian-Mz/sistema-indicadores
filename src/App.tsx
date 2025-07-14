@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SidebarProvider } from "./context/SidebarContext";
+import SidebarProvider from "./context/SidebarProvider";
 import LoginPage from "./features/auth/page/LoginPage";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import DashboardLayout from "./layouts/AppLayout";

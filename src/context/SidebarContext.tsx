@@ -1,65 +1,12 @@
-// context/SidebarContext.tsx
-import { createContext, useContext, useState, useEffect } from "react";
+// context/sidebar-context.ts
+import { createContext, useContext } from "react";
 
-type SidebarContextType = {
-  isExpanded: boolean;
-  isMobileOpen: boolean;
-  isMobile: boolean;
-  isHovered: boolean;
-  activeItem: string | null;
-  openSubmenu: string | null;
-  toggleSidebar: () => void;
-  toggleMobileSidebar: () => void;
-  setIsHovered: (isHovered: boolean) => void;
-  setActiveItem: (item: string | null) => void;
-  toggleSubmenu: (item: string) => void;
-};
+export const SidebarContext = createContext<{
+  sidebarUnfoldable: boolean;
+  setSidebarUnfoldable: (val: boolean) => void;
+}>({
+  sidebarUnfoldable: true,
+  setSidebarUnfoldable: () => {},
+});
 
-const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
-
-export const useSidebar = () => {
-  const context = useContext(SidebarContext);
-  if (!context) throw new Error("useSidebar must be used within SidebarProvider");
-  return context;
-};
-
-export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [activeItem, setActiveItem] = useState<string | null>(null);
-  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth < 1024;
-      setIsMobile(mobile);
-      if (!mobile) setIsMobileOpen(false);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return (
-    <SidebarContext.Provider
-      value={{
-        isExpanded: isMobile ? false : isExpanded,
-        isMobileOpen,
-        isMobile,
-        isHovered,
-        activeItem,
-        openSubmenu,
-        toggleSidebar: () => setIsExpanded(prev => !prev),
-        toggleMobileSidebar: () => setIsMobileOpen(prev => !prev),
-        setIsHovered,
-        setActiveItem,
-        toggleSubmenu: item =>
-          setOpenSubmenu(prev => (prev === item ? null : item)),
-      }}
-    >
-      {children}
-    </SidebarContext.Provider>
-  );
-};
+export const useSidebar = () => useContext(SidebarContext);
