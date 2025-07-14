@@ -20,6 +20,20 @@ const DesercionPage = () => {
     <div className="p-3">
       <h4 className="mb-3 fw-semibold">Tasa de Deserción y Retención</h4>
 
+      {/* Mini dashboard */}
+      <CCard className="mb-4">
+        <CCardBody>
+          <iframe
+            src="https://lookerstudio.google.com/embed/reporting/37ff9579-c3ca-4b5f-849c-9f85c75d09ab/page/p_h3lb8xc8hd"
+            width="100%"
+            height="1250 px"
+            
+            style={{ border: 0 }}
+            allowFullScreen
+          ></iframe>
+        </CCardBody>
+      </CCard>
+
       <CCard className="mb-4">
         <CCardBody>
           <CCardText style={{ fontSize: '0.95rem' }}>
@@ -163,21 +177,6 @@ const DesercionPage = () => {
                 </CCol>
               </CRow>
             </CCollapse>
-        </CCardBody>
-      </CCard>
-
-    
-      {/* Mini dashboard */}
-      <CCard className="mb-4">
-        <CCardBody>
-          <h6 className="mb-3 text-muted">Resumen gráfico</h6>
-          <iframe
-            src="https://lookerstudio.google.com/embed/reporting/37ff9579-c3ca-4b5f-849c-9f85c75d09ab/page/p_h3lb8xc8hd"
-            width="100%"
-            height="1100"
-            style={{ border: 0 }}
-            allowFullScreen
-          ></iframe>
         </CCardBody>
       </CCard>
 

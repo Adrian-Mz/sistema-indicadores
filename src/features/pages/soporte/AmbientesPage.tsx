@@ -19,6 +19,20 @@ const AmbientesPage = () => {
   return (
     <div className="p-3">
       <h4 className="mb-3 fw-semibold">Ambientes de Aprendizaje</h4>
+      {/* Mini dashboard */}
+      <CCard className="mb-4">
+        <CCardBody>
+          <h6 className="mb-3 text-muted">Resumen gráfico</h6>
+          <iframe
+            src="https://lookerstudio.google.com/embed/reporting/41c61f4a-7bba-4841-ba10-36afe294ed82/page/p_h3lb8xc8hd"
+            width="100%"
+            height="1000"
+            style={{ border: 0 }}
+            allowFullScreen
+            title="Indicador Ambientes de Aprendizaje"
+          ></iframe>
+        </CCardBody>
+      </CCard>
 
       <CCard className="mb-4">
         <CCardBody>
@@ -128,21 +142,6 @@ const AmbientesPage = () => {
               </CCol>
             </CRow>
           </CCollapse>
-        </CCardBody>
-      </CCard>
-
-      {/* Mini dashboard */}
-      <CCard className="mb-4">
-        <CCardBody>
-          <h6 className="mb-3 text-muted">Resumen gráfico</h6>
-          <iframe
-            src="https://lookerstudio.google.com/embed/reporting/41c61f4a-7bba-4841-ba10-36afe294ed82/page/p_h3lb8xc8hd"
-            width="100%"
-            height="1000"
-            style={{ border: 0 }}
-            allowFullScreen
-            title="Indicador Ambientes de Aprendizaje"
-          ></iframe>
         </CCardBody>
       </CCard>
 

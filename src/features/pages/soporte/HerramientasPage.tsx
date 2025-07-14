@@ -19,6 +19,20 @@ const HerramientasPage = () => {
   return (
     <div className="p-3">
       <h4 className="mb-3 fw-semibold">Herramientas Pedagógicas</h4>
+      {/* Mini dashboard */}
+      <CCard className="mb-4">
+        <CCardBody>
+          <h6 className="mb-3 text-muted">Resumen gráfico</h6>
+          <iframe
+            src="https://lookerstudio.google.com/embed/reporting/9ae6f4e9-9742-404f-b630-246c4e0fffc4/page/p_h3lb8xc8hd"
+            width="100%"
+            height="1100"
+            style={{ border: 0 }}
+            allowFullScreen
+            title="Indicador Herramientas Pedagógicas"
+          ></iframe>
+        </CCardBody>
+      </CCard>
 
       <CCard className="mb-4">
         <CCardBody>
@@ -127,21 +141,6 @@ const HerramientasPage = () => {
               </CCol>
             </CRow>
           </CCollapse>
-        </CCardBody>
-      </CCard>
-
-      {/* Mini dashboard */}
-      <CCard className="mb-4">
-        <CCardBody>
-          <h6 className="mb-3 text-muted">Resumen gráfico</h6>
-          <iframe
-            src="https://lookerstudio.google.com/embed/reporting/9ae6f4e9-9742-404f-b630-246c4e0fffc4/page/p_h3lb8xc8hd"
-            width="100%"
-            height="1100"
-            style={{ border: 0 }}
-            allowFullScreen
-            title="Indicador Herramientas Pedagógicas"
-          ></iframe>
         </CCardBody>
       </CCard>
 
