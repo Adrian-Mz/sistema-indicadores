@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SidebarContext } from "./SidebarContext";
 
 const SidebarProvider = ({ children }: { children: React.ReactNode }) => {
-  const [sidebarUnfoldable, setSidebarUnfoldable] = useState(true);
+  const [sidebarUnfoldable, setSidebarUnfoldable] = useState(false);
 
   return (
     <SidebarContext.Provider value={{ sidebarUnfoldable, setSidebarUnfoldable }}>

@@ -45,7 +45,7 @@ const desarrolloIconMap: Record<string, typeof cilCloudDownload> = {
 }
 
 const AppSidebar = () => {
-  const { setSidebarUnfoldable } = useSidebar()
+  const {setSidebarUnfoldable } = useSidebar()
 
   return (
     <CSidebar
