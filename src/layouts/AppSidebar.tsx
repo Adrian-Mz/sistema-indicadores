@@ -9,7 +9,7 @@ import {
   CSidebarFooter,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilUser, cilEducation, cilPuzzle, cilHome } from '@coreui/icons'
+import { cilUser, cilEducation, cilPuzzle, cilHome, cilCloudDownload, cilLightbulb, cilShieldAlt } from '@coreui/icons'
 import { NavLink } from 'react-router-dom'
 import { routes } from '../routes/AppRoutes'
 import { useSidebar } from '../context/SidebarContext'
@@ -36,6 +36,12 @@ const iconMap: Record<string, typeof cilUser> = {
   'Personal Académico': cilUser,
   Estudiantes: cilEducation,
   'Funciones de Soporte': cilPuzzle,
+}
+
+const desarrolloIconMap: Record<string, typeof cilCloudDownload> = {
+  Fuentes: cilCloudDownload,
+  Nosotros: cilLightbulb,
+  Politicas: cilShieldAlt,
 }
 
 const AppSidebar = () => {
@@ -90,6 +96,7 @@ const AppSidebar = () => {
         {groupedRoutes.Desarrollo.map((route) => (
           <CNavItem key={route.path}>
             <NavLink to={route.path} className="nav-link">
+              <CIcon icon={desarrolloIconMap[route.title] || cilCloudDownload} customClassName="nav-icon" />
               <span className="nav-text">{route.title}</span>
             </NavLink>
           </CNavItem>
@@ -98,7 +105,7 @@ const AppSidebar = () => {
 
       <CSidebarFooter className="border-top">
         <div className="sidebar-footer-content text-center small">
-          <strong>© 2025 ESPOCH</strong>
+          <strong>©</strong>
         </div>
       </CSidebarFooter>
     </CSidebar>
