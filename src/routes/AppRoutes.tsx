@@ -46,6 +46,7 @@ export const routes = [
     title: "Herramientas",
     breadcrumb: "Herramientas pedagógicas",
     section: "Funciones de Soporte",
+    hidden: true,
   },
   {
     path: "soporte/ambientes",
@@ -53,6 +54,7 @@ export const routes = [
     title: "Ambientes",
     breadcrumb: "Ambientes de aprendizaje",
     section: "Funciones de Soporte",
+    hidden: true,
   },
   {
     path: "desarrollo/fuentes",
