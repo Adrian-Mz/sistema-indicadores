@@ -24,9 +24,9 @@ const DesercionPage = () => {
       <CCard className="mb-4">
         <CCardBody>
           <iframe
-            src="https://lookerstudio.google.com/embed/reporting/37ff9579-c3ca-4b5f-849c-9f85c75d09ab/page/p_h3lb8xc8hd"
+            src="https://lookerstudio.google.com/embed/reporting/5870533a-3f87-4a34-9126-f26fd76f3101/page/p_h3lb8xc8hd"
             width="100%"
-            height="1250 px"
+            height="1100 px"
             
             style={{ border: 0 }}
             allowFullScreen
