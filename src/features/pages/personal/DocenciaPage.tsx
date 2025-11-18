@@ -24,15 +24,13 @@ const DocenciaPage = () => {
 
   return (
     <div className="p-3">
-      <h4 className="mb-3 fw-semibold">Indicadores de Docencia del Personal Académico</h4>
       {/* Dashboard */}
       <CCard className="mb-4">
         <CCardBody>
-          <h6 className="mb-3 text-muted">Resumen gráfico</h6>
           <iframe
             src="https://lookerstudio.google.com/embed/reporting/88797ffa-370b-4ec4-bf16-ede0d626d3d2/page/p_h3lb8xc8hd"
             width="100%"
-            height="1100"
+            height="1400"
             style={{ border: 0 }}
             allowFullScreen
           ></iframe>

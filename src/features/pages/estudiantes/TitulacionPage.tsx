@@ -18,14 +18,13 @@ const TitulacionPage = () => {
 
   return (
     <div className="p-3">
-      <h4 className="mb-3 fw-semibold">Tasa de Titulación</h4>
       {/* Mini dashboard */}
       <CCard className="mb-4">
         <CCardBody>
           <iframe
             src="https://lookerstudio.google.com/embed/reporting/f0b37fd1-e8d9-43de-a6b7-4c84b13b07cc/page/p_h3lb8xc8hd"
             width="100%"
-            height="1100"
+            height="1400"
             style={{ border: 0 }}
             allowFullScreen
           ></iframe>

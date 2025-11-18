@@ -18,7 +18,6 @@ const DesercionPage = () => {
 
   return (
     <div className="p-3">
-      <h4 className="mb-3 fw-semibold">Tasa de Deserción y Retención</h4>
 
       {/* Mini dashboard */}
       <CCard className="mb-4">
@@ -27,7 +26,6 @@ const DesercionPage = () => {
             src="https://lookerstudio.google.com/embed/reporting/5870533a-3f87-4a34-9126-f26fd76f3101/page/p_h3lb8xc8hd"
             width="100%"
             height="1100 px"
-            
             style={{ border: 0 }}
             allowFullScreen
           ></iframe>
