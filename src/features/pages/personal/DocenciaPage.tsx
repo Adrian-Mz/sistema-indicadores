@@ -28,7 +28,7 @@ const DocenciaPage = () => {
       <CCard className="mb-4">
         <CCardBody>
           <iframe
-            src="https://lookerstudio.google.com/embed/reporting/88797ffa-370b-4ec4-bf16-ede0d626d3d2/page/p_h3lb8xc8hd"
+            src="https://lookerstudio.google.com/embed/reporting/8a001c22-6d69-420b-9bf0-a5c04089dabc/page/p_h3lb8xc8hd"
             width="100%"
             height="1400"
             style={{ border: 0 }}
