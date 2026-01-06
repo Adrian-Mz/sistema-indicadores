@@ -14,7 +14,6 @@ import {
   cilCursor,
   cilUser,
   cilEducation,
-  cilPuzzle,
 } from "@coreui/icons";
 
 const acciones = [
@@ -39,8 +38,6 @@ const indicadores = [
   { nombre: "Personal Académico", icon: cilUser },
   { nombre: "Titulación", icon: cilEducation },
   { nombre: "Deserción y Retención", icon: cilEducation },
-  { nombre: "Herramientas Pedagógicas", icon: cilPuzzle },
-  { nombre: "Ambientes de Aprendizaje", icon: cilPuzzle },
 ];
 
 const DashboardPage = () => {

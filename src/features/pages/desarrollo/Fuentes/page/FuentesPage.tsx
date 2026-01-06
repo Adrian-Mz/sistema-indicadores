@@ -12,11 +12,13 @@ import { cilCloudDownload, cilGraph } from "@coreui/icons";
 
 import FuenteTitulacion from "../components/FuenteTitulacion";
 import FuenteRetencion from "../components/FuenteRetencion";
+import FuentePersonalAcademico from "../components/FuentePersonalAcademico";
 
 // Diccionario de componentes disponibles
 const componentesFuentes: Record<string, React.FC> = {
   "Titulación": FuenteTitulacion,
   "Deserción y Retención": FuenteRetencion,
+  "Personal Académico": FuentePersonalAcademico,
 };
 
 const fuentes = [
@@ -39,9 +41,9 @@ const fuentes = [
     descripcion:
       "Datos relacionados con la calidad, estabilidad y dedicación del personal académico.",
     indicador: "Personal Académico",
-    disponible: false,
+    disponible: true,
   },
-  {
+  /*{
     nombre: "Fuente Herramientas",
     descripcion:
       "Evaluación de funcionalidad, disponibilidad y accesibilidad de herramientas pedagógicas.",
@@ -54,7 +56,7 @@ const fuentes = [
       "Información sobre el estado de aulas, laboratorios, talleres y otros ambientes educativos.",
     indicador: "Ambientes de Aprendizaje",
     disponible: false,
-  },
+  },*/
 ];
 
 const FuentesPage = () => {

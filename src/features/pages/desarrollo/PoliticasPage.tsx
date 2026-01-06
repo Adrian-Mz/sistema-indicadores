@@ -45,7 +45,7 @@ const PoliticasPage = () => {
       </CCard>
 
       <div className="text-center text-muted" style={{ fontSize: "0.85rem" }}>
-        Última actualización: Junio 2025
+        Última actualización: Enero 2026
       </div>
     </div>
   );
