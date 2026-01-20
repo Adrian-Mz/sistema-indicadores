@@ -121,7 +121,7 @@ const LoginForm = () => {
         className="w-full h-[48px] font-semibold rounded-lg transition"
         disabled={loading}
       >
-        {loading ? "Ingresando..." : "Inicar sesión"}
+        {loading ? "Ingresando..." : "Iniciar sesión"}
       </CButton>
     </CForm>
   );

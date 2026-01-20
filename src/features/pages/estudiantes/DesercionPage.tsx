@@ -23,6 +23,7 @@ const DesercionPage = () => {
       <CCard className="mb-4">
         <CCardBody>
           <iframe
+            title="Panel de deserción y retención institucional"
             src="https://lookerstudio.google.com/embed/reporting/5870533a-3f87-4a34-9126-f26fd76f3101/page/p_h3lb8xc8hd"
             width="100%"
             height="1100 px"
