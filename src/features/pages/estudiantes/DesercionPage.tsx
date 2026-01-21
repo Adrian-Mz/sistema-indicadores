@@ -26,20 +26,21 @@ const DesercionPage = () => {
             style={{
               position: 'relative',
               width: '100%',
-              height: '1400px',
+              height: '1800px',
               overflow: 'hidden',
               background: '#fff'
             }}
           >
             <iframe
-              src="https://lookerstudio.google.com/embed/reporting/5870533a-3f87-4a34-9126-f26fd76f3101/page/p_h3lb8xc8hd"
+              src="https://lookerstudio.google.com/embed/reporting/37ff9579-c3ca-4b5f-849c-9f85c75d09ab/page/p_h3lb8xc8hd"
+              width="100%"
               style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '1500px',
-                border: 0
+                border:'0', 
+                position:'absolute',
+                top:0, 
+                left:0,
+                width:'100%', 
+                height:'100%',
               }}
             />
 
@@ -50,7 +51,7 @@ const DesercionPage = () => {
                 bottom: 0,
                 left: 0,
                 width: '100%',
-                height: '32px',
+                height: '30px',
                 background: '#fff'
               }}
             />

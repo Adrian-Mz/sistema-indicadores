@@ -25,20 +25,21 @@ const TitulacionPage = () => {
             style={{
               position: 'relative',
               width: '100%',
-              height: '1400px',
+              height: '1800px',
               overflow: 'hidden',
               background: '#fff'
             }}
           >
             <iframe
               src="https://lookerstudio.google.com/embed/reporting/f0b37fd1-e8d9-43de-a6b7-4c84b13b07cc/page/p_h3lb8xc8hd"
+              width="100%"
               style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '1500px',
-                border: 0
+                border:'0', 
+                position:'absolute',
+                top:0, 
+                left:0,
+                width:'100%', 
+                height:'100%',
               }}
             />
 
@@ -49,7 +50,7 @@ const TitulacionPage = () => {
                 bottom: 0,
                 left: 0,
                 width: '100%',
-                height: '32px',
+                height: '30px',
                 background: '#fff'
               }}
             />
