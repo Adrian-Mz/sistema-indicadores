@@ -27,13 +27,39 @@ const DocenciaPage = () => {
       {/* Dashboard */}
       <CCard className="mb-4">
         <CCardBody>
-          <iframe
-            src="https://lookerstudio.google.com/embed/reporting/8a001c22-6d69-420b-9bf0-a5c04089dabc/page/p_h3lb8xc8hd"
-            width="100%"
-            height="1400"
-            style={{ border: 0 }}
-            allowFullScreen
-          ></iframe>
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: '1400px',
+              overflow: 'hidden',
+              background: '#fff'
+            }}
+          >
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/8a001c22-6d69-420b-9bf0-a5c04089dabc/page/p_h3lb8xc8hd"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '1500px',
+                border: 0
+              }}
+            />
+
+            {/* Tapa footer Looker */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                width: '100%',
+                height: '32px',
+                background: '#fff'
+              }}
+            />
+          </div>
         </CCardBody>
       </CCard>
 

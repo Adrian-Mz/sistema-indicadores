@@ -22,14 +22,39 @@ const DesercionPage = () => {
       {/* Mini dashboard */}
       <CCard className="mb-4">
         <CCardBody>
-          <iframe
-            title="Panel de deserción y retención institucional"
-            src="https://lookerstudio.google.com/embed/reporting/5870533a-3f87-4a34-9126-f26fd76f3101/page/p_h3lb8xc8hd"
-            width="100%"
-            height="1100 px"
-            style={{ border: 0 }}
-            allowFullScreen
-          ></iframe>
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: '1400px',
+              overflow: 'hidden',
+              background: '#fff'
+            }}
+          >
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/5870533a-3f87-4a34-9126-f26fd76f3101/page/p_h3lb8xc8hd"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '1500px',
+                border: 0
+              }}
+            />
+
+            {/* Tapa footer Looker */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                width: '100%',
+                height: '32px',
+                background: '#fff'
+              }}
+            />
+          </div>
         </CCardBody>
       </CCard>
 
