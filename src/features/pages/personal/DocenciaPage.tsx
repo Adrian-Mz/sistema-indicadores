@@ -31,7 +31,7 @@ const DocenciaPage = () => {
             style={{
               position: 'relative',
               width: '100%',
-              height: '1800px',
+              height: '1600px',
               overflow: 'hidden',
               background: '#fff'
             }}
