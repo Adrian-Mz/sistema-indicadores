@@ -31,7 +31,7 @@ const TitulacionPage = () => {
             }}
           >
             <iframe
-              src="https://lookerstudio.google.com/embed/reporting/f0b37fd1-e8d9-43de-a6b7-4c84b13b07cc/page/p_h3lb8xc8hd"
+              src="https://lookerstudio.google.com/embed/reporting/271e35a5-1549-4db8-a17e-1e23e31d9bce/page/p_h3lb8xc8hd"
               width="100%"
               style={{
                 border:'0', 
