@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SidebarProvider from "./context/SidebarProvider";
 import LoginPage from "./features/auth/page/LoginPage";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import DashboardLayout from "./layouts/AppLayout";
@@ -10,7 +9,6 @@ import ResetPasswordPage from "./features/auth/page/ResetPasswordPage";
 function App() {
   return (
     <BrowserRouter>
-      <SidebarProvider>
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/recover-password" element={<RecoverPasswordForm />} />
@@ -32,7 +30,6 @@ function App() {
             ))}
           </Route>
         </Routes>
-      </SidebarProvider>
     </BrowserRouter>
   );
 }
