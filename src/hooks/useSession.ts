@@ -3,7 +3,7 @@ import { supabase } from "../utils/supabaseClient";
 import { Session } from "@supabase/supabase-js";
 
 export const useSession = () => {
-  const [session, setSession] = useState<Session | null>(null);
+  const [session, setSession] = useState<Session | null | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

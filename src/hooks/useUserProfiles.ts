@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
+import { Session } from "@supabase/supabase-js";
 
-export type Role = "admin" | "user";
+type Role = "admin" | "user";
 
 type UserProfile = {
   id: string;
@@ -10,24 +11,29 @@ type UserProfile = {
   role: Role;
 };
 
-export function useUserProfile() {
-  const [profile, setProfile] = useState<UserProfile | null>(null); // perfil del usuario
+export function useUserProfile(session: Session | null | undefined) {
+  const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // ⛔ mientras la sesión se resuelve, NO decidir nada
+    if (session === undefined) return;
+
+    // 🔓 no logueado
+    if (!session) {
+      setProfile(null);
+      setLoading(false);
+      return;
+    }
+
+    // 🔐 logueado → cargar perfil
     const fetchProfile = async () => {
-      const { data: session } = await supabase.auth.getSession();
-      const user = session?.session?.user;
-      if (!user) {
-        setProfile(null);
-        setLoading(false);
-        return;
-      }
+      setLoading(true);
 
       const { data, error } = await supabase
         .from("profiles")
         .select("*")
-        .eq("id", user.id)
+        .eq("id", session.user.id)
         .single();
 
       if (!error) setProfile(data);
@@ -35,7 +41,7 @@ export function useUserProfile() {
     };
 
     fetchProfile();
-  }, []);
+  }, [session]);
 
   return { profile, loading };
 }
