@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../../../utils/supabaseClient";
+import { useNavigate } from "react-router-dom";
 import {
   CForm,
   CFormLabel,
@@ -7,13 +8,17 @@ import {
   CButton,
   CAlert,
 } from "@coreui/react";
+import { cilArrowLeft } from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
 import { Mail } from "lucide-react";
 import AuthLayout from "../../../layouts/AuthLayout";
+
 
 export const RecoverPasswordForm = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +39,19 @@ export const RecoverPasswordForm = () => {
   return (
     <AuthLayout>
       <div className="space-y-6">
+
+        <CButton
+          color="primary"
+          variant="ghost"
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-800"
+          onClick={() => navigate(-1)}
+        >
+          <CIcon icon={cilArrowLeft} />
+          Regresar
+        </CButton>
+
         <div className="text-center mb-6">
+          
           <h2 className="text-2xl font-bold text-gray-800">Recuperar contraseña</h2>
           <p className="text-sm text-gray-500">Ingresa tu correo institucional para recibir el enlace</p>
         </div>
