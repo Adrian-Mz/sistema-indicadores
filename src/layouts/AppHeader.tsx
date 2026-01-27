@@ -37,7 +37,7 @@ export const AppHeader = () => {
 
       <CNavbar expand="lg" className="bg-red-700 border-b border-gray-300 shadow-sm">
         <CContainer fluid className="p-2">
-          <CNavbarBrand href="/dashboard" className="text-white ml-2">
+          <CNavbarBrand href="/dashboard" className="text-white ml-7">
              Sistema Indicadores
           </CNavbarBrand>
           <CNavbarToggler onClick={() => setVisible(!visible)} />

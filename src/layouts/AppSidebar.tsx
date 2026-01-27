@@ -56,7 +56,7 @@ const AppSidebar = () => {
     >
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand>
-          <img src={logoIcon} alt="Logo ESPOCH" style={{ height: '2.5em', color: '#fff' }} />
+          <img src={logoIcon} alt="Logo ESPOCH" style={{ height: '2.5rem', color: '#fff' }} className="w-full h-full object-contain" />
         </CSidebarBrand>
       </CSidebarHeader>
 

@@ -6,7 +6,7 @@ import { useSidebar } from "../context/SidebarContext";
 const LayoutContent = () => {
 
   const { sidebarUnfoldable } = useSidebar();
-  const sidebarWidth = sidebarUnfoldable ? 280 : 62;
+  const sidebarWidth = sidebarUnfoldable ? 254 : 62;
 
   return (
     <div className="min-vh-100">
@@ -20,7 +20,7 @@ const LayoutContent = () => {
       >
         <AppHeader />
         <main
-          className="flex-grow-1 overflow-auto bg-gray-100 p-4 rounded-2xl min-vh-100"
+          className="flex-grow-1 overflow-auto bg-gray-50 p-4 rounded-2xl min-vh-100"
           style={{ minHeight: "0" }}
         >
           <div className="bg-white rounded-2xl shadow-lg p-6 ml-2">
