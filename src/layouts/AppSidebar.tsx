@@ -13,7 +13,7 @@ import { cilUser, cilEducation, cilPuzzle, cilHome, cilCloudDownload, cilLightbu
 import { NavLink } from 'react-router-dom'
 import { routes } from '../routes/AppRoutes'
 import { useSidebar } from '../context/SidebarContext'
-import logoIcon from '../assets/logo-icon-espoch.png'
+import logoIcon from '../assets/icono_espoch.svg'
 
 const groupedRoutes = routes.reduce((acc, route) => {
   if (!route.hidden && route.section && route.title && route.path !== '/dashboard') {
@@ -56,7 +56,7 @@ const AppSidebar = () => {
     >
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand>
-          <img src={logoIcon} alt="Logo ESPOCH" style={{ height: '45px', width: 'auto' }} />
+          <img src={logoIcon} alt="Logo ESPOCH" style={{ height: '2.5em', color: '#fff' }} />
         </CSidebarBrand>
       </CSidebarHeader>
 
@@ -104,8 +104,10 @@ const AppSidebar = () => {
       </CSidebarNav>
 
       <CSidebarFooter className="border-top">
-        <div className="sidebar-footer-content text-center small">
-          <strong>©</strong>
+         <div
+          className="d-flex justify-content-center align-items-center text-[11px]"
+        >
+          <strong>© Bi-Data 2026</strong>
         </div>
       </CSidebarFooter>
     </CSidebar>
