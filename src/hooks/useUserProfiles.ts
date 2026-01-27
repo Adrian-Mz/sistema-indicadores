@@ -15,25 +15,24 @@ export function useUserProfile(session: Session | null | undefined) {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const userId = session?.user?.id ?? null;
+
   useEffect(() => {
-    // ⛔ mientras la sesión se resuelve, NO decidir nada
     if (session === undefined) return;
 
-    // 🔓 no logueado
-    if (!session) {
+    if (!userId) {
       setProfile(null);
       setLoading(false);
       return;
     }
 
-    // 🔐 logueado → cargar perfil
     const fetchProfile = async () => {
       setLoading(true);
 
       const { data, error } = await supabase
         .from("profiles")
         .select("*")
-        .eq("id", session.user.id)
+        .eq("id", userId)
         .single();
 
       if (!error) setProfile(data);
@@ -41,7 +40,8 @@ export function useUserProfile(session: Session | null | undefined) {
     };
 
     fetchProfile();
-  }, [session]);
+  }, [userId]); // <- OJO: si quieres, puedes quitar session y dejar solo [userId]
+  // Mejor: SOLO [userId] (recomendado)
 
   return { profile, loading };
 }
