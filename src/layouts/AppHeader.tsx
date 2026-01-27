@@ -23,7 +23,7 @@ import { useNavigate } from "react-router-dom";
 export const AppHeader = () => {
   const [visible, setVisible] = useState(false);
   const { session } = useSession();
-  const { profile } = useUserProfile();
+  const { profile } = useUserProfile(session);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
