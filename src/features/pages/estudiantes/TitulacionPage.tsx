@@ -9,6 +9,7 @@ import {
   CAlert,
 } from '@coreui/react';
 import { useState } from 'react';
+import EmbedRenderer from '../../embeds/EmbedRenderer';
 
 const TitulacionPage = () => {
   const [visible, setVisible] = useState(false);
@@ -30,18 +31,7 @@ const TitulacionPage = () => {
               background: '#fff'
             }}
           >
-            <iframe
-              src="https://lookerstudio.google.com/embed/reporting/271e35a5-1549-4db8-a17e-1e23e31d9bce/page/p_h3lb8xc8hd"
-              width="100%"
-              style={{
-                border:'0', 
-                position:'absolute',
-                top:0, 
-                left:0,
-                width:'100%', 
-                height:'100%',
-              }}
-            />
+            <EmbedRenderer page="titulacion" />
 
             {/* Tapa footer Looker */}
             <div

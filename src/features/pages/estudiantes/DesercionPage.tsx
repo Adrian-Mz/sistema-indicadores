@@ -9,6 +9,7 @@ import {
   CCollapse,
 } from '@coreui/react';
 import { useState } from 'react';
+import EmbedRenderer from '../../embeds/EmbedRenderer';
 
 const DesercionPage = () => {
   const [visible, setVisible] = useState(false);
@@ -31,19 +32,7 @@ const DesercionPage = () => {
               background: '#fff'
             }}
           >
-            <iframe
-              src="https://lookerstudio.google.com/embed/reporting/37ff9579-c3ca-4b5f-849c-9f85c75d09ab/page/p_h3lb8xc8hd"
-              width="100%"
-              style={{
-                border:'0', 
-                position:'absolute',
-                top:0, 
-                left:0,
-                width:'100%', 
-                height:'100%',
-              }}
-            />
-
+            <EmbedRenderer page="desercion" />
             {/* Tapa footer Looker */}
             <div
               style={{

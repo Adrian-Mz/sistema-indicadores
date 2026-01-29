@@ -1,0 +1,1 @@
+export type PageKey = "titulacion" | "desercion" | "personal";

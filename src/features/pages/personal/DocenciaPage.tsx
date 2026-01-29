@@ -15,6 +15,7 @@ import {
   CTableDataCell
 } from '@coreui/react';
 import { useState } from 'react';
+import EmbedRenderer from '../../embeds/EmbedRenderer';
 
 const DocenciaPage = () => {
   const [visible, setVisible] = useState(false);
@@ -36,19 +37,7 @@ const DocenciaPage = () => {
               background: '#fff'
             }}
           >
-            <iframe
-              src="https://lookerstudio.google.com/embed/reporting/8a001c22-6d69-420b-9bf0-a5c04089dabc/page/p_h3lb8xc8hd"
-              width="100%"
-              style={{
-                border:'0', 
-                position:'absolute',
-                top:0, 
-                left:0,
-                width:'100%', 
-                height:'100%',
-              }}
-            />
-
+            <EmbedRenderer page="personal" />
             {/* Tapa footer Looker */}
             <div
               style={{

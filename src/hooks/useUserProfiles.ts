@@ -3,12 +3,14 @@ import { supabase } from "../utils/supabaseClient";
 import { Session } from "@supabase/supabase-js";
 
 type Role = "admin" | "user";
+type Sector = "fie" | "fade" | "espoch";
 
 type UserProfile = {
   id: string;
   full_name: string;
   email: string;
   role: Role;
+  sector: Sector;
 };
 
 export function useUserProfile(session: Session | null | undefined) {
