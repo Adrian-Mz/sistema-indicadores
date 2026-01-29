@@ -12,8 +12,8 @@ export const EMBEDS_BY_SECTOR = {
 
   //Importante cambiar los enlaces por los correctos de FADE y etc.
   fade: {
-    titulacion: "https://lookerstudio.google.com/embed/reporting/FADE_TIT",
-    desercion: "https://lookerstudio.google.com/embed/reporting/FADE_DOC",
-    personal: "https://lookerstudio.google.com/embed/reporting/FADE_PER",
+    titulacion: "https://lookerstudio.google.com/embed/reporting/3482638a-1a1a-4b75-8a0a-f2ea7f49b6d7/page/p_h3lb8xc8hd",
+    desercion: "https://lookerstudio.google.com/embed/reporting/60fc421e-c2ad-4c67-b1bf-c9d3a8d00f0a/page/p_h3lb8xc8hd",
+    personal: "https://lookerstudio.google.com/embed/reporting/62163504-e759-49df-8ba2-86124a051d79/page/p_h3lb8xc8hd",
   },
 };
