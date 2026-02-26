@@ -1,13 +1,19 @@
 // src/routes/AppRoutes.tsx
 import DashboardPage from "../features/dashboard/page/DashboardPage";
+//Rutas personal académico
 import DocenciaPage from "../features/pages/personal/DocenciaPage";
+//Rutas de estudiantes
 import TitulacionPage from "../features/pages/estudiantes/TitulacionPage";
 import DesercionPage from "../features/pages/estudiantes/DesercionPage";
+import PaisOrigenPage from "../features/pages/estudiantes/PaisOrigenPage";
+//Rutas de soporte
 import HerramientasPage from "../features/pages/soporte/HerramientasPage";
 import AmbientesPage from "../features/pages/soporte/AmbientesPage";
+//Rutas de desarrollo
 import FuentesPage from "../features/pages/desarrollo/Fuentes/page/FuentesPage";
 import NosotrosPage from "../features/pages/desarrollo/NosotrosPage";
 import PoliticasPage from "../features/pages/desarrollo/PoliticasPage";
+//Rutas de usuarios
 import AdminDashboardPage from "../features/users/admin/page/AdminDashboardPage";
 import UserPerfilPage from "../features/users/users/page/UserPerfilPage";
 
@@ -38,6 +44,13 @@ export const routes = [
     element: DesercionPage,
     title: "Deserción y Retención",
     breadcrumb: "Tasa de deserción",
+    section: "Estudiantes",
+  },
+  {
+    path: "estudiantes/pais-origen",
+    element: PaisOrigenPage,
+    title: "Pais de origen",
+    breadcrumb: "País de origen",
     section: "Estudiantes",
   },
   {

@@ -190,9 +190,9 @@ const VisualResumePage = () => {
             </div>
 
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-               <h3 className="font-bold text-gray-800 mb-4 text-xs uppercase tracking-wide">
-                   Documentacion 
-               </h3>
+                <h3 className="text-gray-900 font-bold text-lg mb-2 leading-tight">
+                    Documentación
+                </h3>
                <div className="space-y-3">
                   {recursosData.map((recurso, idx) => (
                     <a
@@ -223,7 +223,7 @@ const VisualResumePage = () => {
 
             {/* Estado */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <h3 className="font-bold text-gray-800 mb-4 text-xs uppercase tracking-wide">
+              <h3 className="font-bold text-gray-800 mb-4 text-xs tracking-wide">
                 Indicadores
               </h3>
 

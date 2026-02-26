@@ -1,1 +1,1 @@
-export type PageKey = "titulacion" | "desercion" | "personal";
+export type PageKey = "titulacion" | "desercion" | "personal" | "origen";
