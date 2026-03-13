@@ -1,7 +1,7 @@
 export const EMBEDS_BY_SECTOR = {
   espoch: {
     titulacion: "https://lookerstudio.google.com/embed/reporting/271e35a5-1549-4db8-a17e-1e23e31d9bce/page/p_h3lb8xc8hd",
-    desercion: "https://lookerstudio.google.com/embed/reporting/37ff9579-c3ca-4b5f-849c-9f85c75d09ab/page/p_h3lb8xc8hd",
+    desercion: "https://lookerstudio.google.com/embed/reporting/5870533a-3f87-4a34-9126-f26fd76f3101/page/p_h3lb8xc8hd",
     personal: "https://lookerstudio.google.com/embed/reporting/8a001c22-6d69-420b-9bf0-a5c04089dabc/page/p_h3lb8xc8hd",
     origen : "https://lookerstudio.google.com/embed/reporting/492dfd4f-0a6b-4c51-a3a8-125cb37c4b0c/page/p_h3lb8xc8hd",
   },
